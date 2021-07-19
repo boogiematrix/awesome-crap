@@ -1,9 +1,14 @@
 import './SaleList.css';
+import SaleItem from '../SaleItem/SaleItem';
 
 const SaleList = () => {
     return (
-        <div>
-            
+        <div className="saleList">
+            {/* TODO: Create loop for available sale items */}
+            {/* Is this a list??? */}
+            <SaleItem />
+            <SaleItem />
+            <SaleItem />
         </div>
     )
 }
