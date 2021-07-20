@@ -1,11 +1,8 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
-import Auth from "../../utils/auth";
+// import Auth from "../../utils/auth";
 import { ADD_SALE } from "../../utils/mutations";
 import "./UserPost.css";
-import Header from '../../components/Header/Header';
-import Nav from '../../components/Nav/Nav';
-import Footer from '../../components/Footer/Footer';
 
 const UserPost = (props) => {
   const [formState, setFormState] = useState({
@@ -58,113 +55,110 @@ const UserPost = (props) => {
 
   return (
     <div>
-      <Header />
-      <Nav />
       <h1 className="addSale">Add A Sale</h1>
       <form onSubmit={handleFormSubmit}>
-      <div className="saleCategory">
-        <h3 className="newSaleSection">Address</h3>
-        <section>
-          <label htmlFor="street">Street:</label>
-          <input
-            placeholder="street"
-            name="street"
-            type="street"
-            id="street"
-            onChange={handleChange}
-          />
-          <label htmlFor="city">City:</label>
-          <input
-            placeholder="city"
-            name="city"
-            type="city"
-            id="city"
-            onChange={handleChange}
-          />
-          <label htmlFor="state">State:</label>
-          <input
-            placeholder="state"
-            name="state"
-            type="state"
-            id="state"
-            onChange={handleChange}
-          />
-          <label htmlFor="Zip">Zip:</label>
-          <input
-            placeholder="zip"
-            name="zip"
-            type="zip"
-            id="zip"
-            onChange={handleChange}
-          />
-        </section>
+        <div className="saleCategory">
+          <h3 className="newSaleSection">Address</h3>
+          <section>
+            <label htmlFor="street">Street:</label>
+            <input
+              placeholder="street"
+              name="street"
+              type="street"
+              id="street"
+              onChange={handleChange}
+            />
+            <label htmlFor="city">City:</label>
+            <input
+              placeholder="city"
+              name="city"
+              type="city"
+              id="city"
+              onChange={handleChange}
+            />
+            <label htmlFor="state">State:</label>
+            <input
+              placeholder="state"
+              name="state"
+              type="state"
+              id="state"
+              onChange={handleChange}
+            />
+            <label htmlFor="Zip">Zip:</label>
+            <input
+              placeholder="zip"
+              name="zip"
+              type="zip"
+              id="zip"
+              onChange={handleChange}
+            />
+          </section>
         </div>
         <div div className="saleCategory">
-        <h3 className="newSaleSection">Time</h3>
-        <section>
-          <label htmlFor="startTime">Start Time:</label>
-          <input
-            placeholder="startTime"
-            name="startTime"
-            type="startTime"
-            id="startTime"
-            onChange={handleChange}
-          />
-          <label htmlFor="endTime">End Time:</label>
-          <input
-            placeholder="endTime"
-            name="endTime"
-            type="endTime"
-            id="endTime"
-            onChange={handleChange}
-          />
-        </section>
+          <h3 className="newSaleSection">Time</h3>
+          <section>
+            <label htmlFor="startTime">Start Time:</label>
+            <input
+              placeholder="startTime"
+              name="startTime"
+              type="startTime"
+              id="startTime"
+              onChange={handleChange}
+            />
+            <label htmlFor="endTime">End Time:</label>
+            <input
+              placeholder="endTime"
+              name="endTime"
+              type="endTime"
+              id="endTime"
+              onChange={handleChange}
+            />
+          </section>
         </div>
         <div div className="saleCategory">
-        <h3 className="newSaleSection">Date</h3>
-        <section>
-          <label htmlFor="startDate">Start Date:</label>
-          <input
-            placeholder="startDate"
-            name="startDate"
-            type="startDate"
-            id="startDate"
-            onChange={handleChange}
-          />
-          <label htmlFor="endDate">End Date:</label>
-          <input
-            placeholder="endDate"
-            name="endDate"
-            type="endDate"
-            id="endDate"
-            onChange={handleChange}
-          />
-        </section>
+          <h3 className="newSaleSection">Date</h3>
+          <section>
+            <label htmlFor="startDate">Start Date:</label>
+            <input
+              placeholder="startDate"
+              name="startDate"
+              type="startDate"
+              id="startDate"
+              onChange={handleChange}
+            />
+            <label htmlFor="endDate">End Date:</label>
+            <input
+              placeholder="endDate"
+              name="endDate"
+              type="endDate"
+              id="endDate"
+              onChange={handleChange}
+            />
+          </section>
         </div>
         <div div className="saleCategory">
-        <h3 className="newSaleSection">Details</h3>
-        <section>
-          <label htmlFor="description">Description:</label>
-          <input
-            placeholder="description"
-            name="description"
-            type="description"
-            id="description"
-            onChange={handleChange}
-          />
-          <label htmlFor="image">Image:</label>
-          <input
-            placeholder="image"
-            alt={formState.description}
-            name="image"
-            type="image"
-            id="image"
-            onChange={handleChange}
-          />
-        </section>
+          <h3 className="newSaleSection">Details</h3>
+          <section>
+            <label htmlFor="description">Description:</label>
+            <input
+              placeholder="description"
+              name="description"
+              type="description"
+              id="description"
+              onChange={handleChange}
+            />
+            <label htmlFor="image">Image:</label>
+            <input
+              placeholder="image"
+              alt={formState.description}
+              name="image"
+              type="image"
+              id="image"
+              onChange={handleChange}
+            />
+          </section>
         </div>
       </form>
-      <Footer />
     </div>
   );
 };
