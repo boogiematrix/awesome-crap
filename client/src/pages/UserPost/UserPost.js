@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import Auth from "../../utils/auth";
 import { ADD_SALE } from "../../utils/mutations";
-import DatetimePicker from 'react-datetime-picker'
+import DatetimePicker from 'react-datetime-picker';
+import { useHistory } from "react-router";
 import "./UserPost.css";
 import Header from '../../components/Header/Header';
 import Nav from '../../components/Nav/Nav';
@@ -20,6 +21,9 @@ const UserPost = (props) => {
     image: "",
   });
   const [addSale] = useMutation(ADD_SALE);
+  const history = useHistory();
+
+  let dateIsValid = "none"
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
@@ -28,6 +32,11 @@ const UserPost = (props) => {
         " ",
         "+"
       );
+    if (!formState.startDate || !formState.endDate) {
+      console.log('problemo')
+      dateIsValid = "inline";
+      return
+    }
     const { data } = await addSale({
       variables: {
         location: location,
@@ -39,6 +48,7 @@ const UserPost = (props) => {
         image: formState.image,
       },
     });
+    history.push('/')
   };
 
   const handleStartDateChange = (value) => {
@@ -67,11 +77,11 @@ const UserPost = (props) => {
     });
   };
 
-  // if (!Auth.loggedIn) {
-  //   return (
-  //     <h2>You need to be logged in to post!</h2>
-  //   )
-  // }
+  if (!Auth.loggedIn) {
+    return (
+      <h2>You need to be logged in to post!</h2>
+    )
+  }
 
   return (
     <div>
@@ -87,7 +97,8 @@ const UserPost = (props) => {
             placeholder="street"
             name="street"
             type="street"
-            id="street"
+              id="street"
+              required
             onChange={handleChange}
           />
           <label htmlFor="city">City:</label>
@@ -95,7 +106,8 @@ const UserPost = (props) => {
             placeholder="city"
             name="city"
             type="city"
-            id="city"
+              id="city"
+              required
             onChange={handleChange}
           />
           <label htmlFor="state">State:</label>
@@ -103,7 +115,8 @@ const UserPost = (props) => {
             placeholder="state"
             name="state"
             type="state"
-            id="state"
+              id="state"
+              required
             onChange={handleChange}
           />
           <label htmlFor="Zip">Zip:</label>
@@ -111,32 +124,12 @@ const UserPost = (props) => {
             placeholder="zip"
             name="zip"
             type="zip"
-            id="zip"
+              id="zip"
+              required
             onChange={handleChange}
           />
         </section>
         </div>
-        {/* <div className="saleCategory">
-        <h3 className="newSaleSection">Time</h3>
-        <section>
-          <label htmlFor="startTime">Start Time:</label>
-          <input
-            placeholder="startTime"
-            name="startTime"
-            type="startTime"
-            id="startTime"
-            onChange={handleChange}
-          />
-          <label htmlFor="endTime">End Time:</label>
-          <input
-            placeholder="endTime"
-            name="endTime"
-            type="endTime"
-            id="endTime"
-            onChange={handleChange}
-          />
-        </section>
-        </div> */}
         <div className="saleCategory">
         <h3 className="newSaleSection">Date</h3>
         <section>
@@ -144,6 +137,7 @@ const UserPost = (props) => {
           <DatetimePicker
             disableClock={true}
               disableCalendar={true}
+              name="startDate"
               minDate={new Date()}
             onChange={handleStartDateChange}
           />
@@ -151,10 +145,12 @@ const UserPost = (props) => {
           <DatetimePicker
             disableClock={true}
               disableCalendar={true}
+              name="endDate"
               minDate={formState.startDate}
             onChange={handleEndDateChange}
           />
-        </section>
+          </section>
+          <h3 style={{ display: dateIsValid , color:"red" }}>Start and end dates required!</h3>
         </div>
         <div className="saleCategory">
         <h3 className="newSaleSection">Details</h3>
@@ -177,6 +173,7 @@ const UserPost = (props) => {
           />
         </section>
         </div>
+        <button type="submit">Submit</button>
       </form>
       <Footer />
     </div>
