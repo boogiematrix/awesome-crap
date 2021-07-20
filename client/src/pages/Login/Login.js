@@ -4,9 +4,8 @@ import Nav from "../../components/Nav/Nav";
 import Footer from "../../components/Footer/Footer";
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
-import { Link } from 'react-router-dom';
-import { LOGIN } from '../utils/mutations';
-import Auth from '../utils/auth';
+import { LOGIN } from '../../utils/mutations';
+import Auth from '../../utils/auth';
 
 
 const Login = () => {
@@ -39,7 +38,7 @@ const Login = () => {
     <div className="login">
       <Header />
       <Nav />
-        <from onSubmit={handleFormSubmit}>
+        <form onSubmit={handleFormSubmit}>
           <div className="">
             <label htmlFor="email">Email adress:</label>
             <input placeholder="youremail@test.com"
@@ -56,7 +55,7 @@ const Login = () => {
               name="password"
               type="password"
               id="pwd"
-              onChange{handleChange}
+              onChange={handleChange}
             />
           </div>
             { error ? (
@@ -64,9 +63,9 @@ const Login = () => {
                 <p className="">Incorrect email and/or password! please try again.</p>
                 </div>
               ) : null}
-          <div>
-            <button type="submit">Submit</button>
-          </div>
+            <div>
+              <button type="submit">Submit</button>
+            </div>
         </form>
 
       <Footer />
