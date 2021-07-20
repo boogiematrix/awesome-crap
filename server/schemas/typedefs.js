@@ -33,7 +33,7 @@ const typeDefs = gql`
 
     type Mutation {
         addUser(username: String!, email: String!, password: String!): Auth
-        login(email: String!, password: String!)
+        login(email: String!, password: String!): Auth
         addSale(
             location: String!,
             startDate: String!,
@@ -56,3 +56,5 @@ const typeDefs = gql`
         removeSale(_id: ID!): Sale
     }
 `
+
+module.exports = typeDefs
