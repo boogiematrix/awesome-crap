@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import Auth from "../../utils/auth";
 import { ADD_SALE } from "../../utils/mutations";
+import Datetime from 'react-datetime'
 import "./UserPost.css";
 import Header from '../../components/Header/Header';
 import Nav from '../../components/Nav/Nav';
@@ -124,12 +125,9 @@ const UserPost = (props) => {
         <h3 className="newSaleSection">Date</h3>
         <section>
           <label htmlFor="startDate">Start Date:</label>
-          <input
-            placeholder="startDate"
-            name="startDate"
-            type="startDate"
-            id="startDate"
-            onChange={handleChange}
+          <Datetime
+              id="startDate"
+              onChange={handleChange({ name: "startDate", })}
           />
           <label htmlFor="endDate">End Date:</label>
           <input
