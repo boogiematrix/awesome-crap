@@ -20,8 +20,6 @@ export const GET_ALL_SALES = gql`
             location
             startDate
             endDate
-            startTime
-            endTime
             description
             image
         }
@@ -34,8 +32,6 @@ export const GET_ONE_SALE = gql`
             location
             startDate
             endDate
-            startTime
-            endTime
             description
             image
         }

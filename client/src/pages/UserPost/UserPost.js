@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import Auth from "../../utils/auth";
 import { ADD_SALE } from "../../utils/mutations";
-import Datetime from 'react-datetime'
+import DatetimePicker from 'react-datetime-picker'
 import "./UserPost.css";
 import Header from '../../components/Header/Header';
 import Nav from '../../components/Nav/Nav';
@@ -14,8 +14,6 @@ const UserPost = (props) => {
     city: "",
     state: "",
     zip: "",
-    startTime: "",
-    endTime: "",
     startDate: "",
     endDate: "",
     description: "",
@@ -42,6 +40,24 @@ const UserPost = (props) => {
       },
     });
   };
+
+  const handleStartDateChange = (value) => {
+    console.log(value)
+    const label = "startDate"
+    setFormState({
+      ...formState,
+      [label]: value
+    })
+  }
+
+  const handleEndDateChange = (value) => {
+    console.log(value)
+    const label = "endDate"
+    setFormState({
+      ...formState,
+      [label]: value
+    })
+  }
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -100,7 +116,7 @@ const UserPost = (props) => {
           />
         </section>
         </div>
-        <div div className="saleCategory">
+        {/* <div className="saleCategory">
         <h3 className="newSaleSection">Time</h3>
         <section>
           <label htmlFor="startTime">Start Time:</label>
@@ -120,26 +136,27 @@ const UserPost = (props) => {
             onChange={handleChange}
           />
         </section>
-        </div>
-        <div div className="saleCategory">
+        </div> */}
+        <div className="saleCategory">
         <h3 className="newSaleSection">Date</h3>
         <section>
           <label htmlFor="startDate">Start Date:</label>
-          <Datetime
-              id="startDate"
-              onChange={handleChange({ name: "startDate", })}
+          <DatetimePicker
+            disableClock={true}
+              disableCalendar={true}
+              minDate={new Date()}
+            onChange={handleStartDateChange}
           />
           <label htmlFor="endDate">End Date:</label>
-          <input
-            placeholder="endDate"
-            name="endDate"
-            type="endDate"
-            id="endDate"
-            onChange={handleChange}
+          <DatetimePicker
+            disableClock={true}
+              disableCalendar={true}
+              minDate={formState.startDate}
+            onChange={handleEndDateChange}
           />
         </section>
         </div>
-        <div div className="saleCategory">
+        <div className="saleCategory">
         <h3 className="newSaleSection">Details</h3>
         <section>
           <label htmlFor="description">Description:</label>
@@ -155,7 +172,6 @@ const UserPost = (props) => {
             placeholder="image"
             alt={formState.description}
             name="image"
-            type="image"
             id="image"
             onChange={handleChange}
           />
