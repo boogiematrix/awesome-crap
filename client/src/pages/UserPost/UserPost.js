@@ -99,7 +99,7 @@ const UserPost = (props) => {
           />
         </section>
         </div>
-        <div div className="saleCategory">
+        <div className="saleCategory">
         <h3 className="newSaleSection">Time</h3>
         <section>
           <label htmlFor="startTime">Start Time:</label>
@@ -120,7 +120,7 @@ const UserPost = (props) => {
           />
         </section>
         </div>
-        <div div className="saleCategory">
+        <div className="saleCategory">
         <h3 className="newSaleSection">Date</h3>
         <section>
           <label htmlFor="startDate">Start Date:</label>
@@ -141,7 +141,7 @@ const UserPost = (props) => {
           />
         </section>
         </div>
-        <div div className="saleCategory">
+        <div className="saleCategory">
         <h3 className="newSaleSection">Details</h3>
         <section>
           <label htmlFor="description">Description:</label>
