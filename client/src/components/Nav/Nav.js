@@ -12,7 +12,10 @@ const Nav = () => {
         Sign Up
       </Link>
       <Link className="postLink link" to="userpost">
-        Post
+        Post 
+      </Link>
+      <Link className="homeLink link" to="/">
+        Home
       </Link>
       <Link className="logoutLink link" to="/">
         Log Out

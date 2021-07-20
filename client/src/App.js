@@ -45,7 +45,7 @@ function App() {
               <Route exact path="/login" component={Login} />
               <Route exact path="/signup" component={Signup} />
               <Route exact path="/userpost" component={UserPost} />
-              <Route exact path="/nomatch" component={NoMatch} />
+              <Route component={NoMatch} />
             </Switch>
           </div>
         </Router>

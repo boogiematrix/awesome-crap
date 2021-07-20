@@ -1,0 +1,23 @@
+:root {
+  --primaryfont: #ba5816;
+  --secondaryfont: #d55e02;
+  --primaryBG: #8f99a4;
+  --primaryColor: #e0ffcc;
+  --secondaryColor: #0c3f30;
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  justify-content: space-evenly;
+}
+
+.link {
+    color: #385b57;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+.link:hover {
+    color: rgb(9, 9, 131);
+}
