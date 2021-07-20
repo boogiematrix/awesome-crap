@@ -4,7 +4,7 @@ import Nav from "../../components/Nav/Nav";
 import Footer from "../../components/Footer/Footer";
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
-import Auth from '../utils/auth';
+import Auth from '../../utils/auth';
 import { ADD_USER } from '../../utils/mutations';
 
 
