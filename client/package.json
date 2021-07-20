@@ -2,6 +2,7 @@
   "name": "project3",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:3001/",
   "dependencies": {
     "@apollo/client": "^3.3.7",
     "@reduxjs/toolkit": "^1.6.0",
