@@ -50,7 +50,22 @@ const Login = () => {
               />
           </div>
           <div>
-          
+            <label htmlFor="pwd">password:</label>
+            <input
+              placeholder="******"
+              name="password"
+              type="password"
+              id="pwd"
+              onChange{handleChange}
+            />
+          </div>
+            { error ? (
+              <div>
+                <p className="">Incorrect email and/or password! please try again.</p>
+                </div>
+              ) : null}
+          <div>
+            <button type="submit">Submit</button>
           </div>
         </form>
 
