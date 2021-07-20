@@ -18,8 +18,7 @@ const handleFormSubmit = async (event) => {
       variables: {
         email: formState.email,
         password: formState.password,
-        firstName: formState.firstName,
-        lastName: formState.lastName,
+        userName: formState.userName,
       },
     });
     const token = mutationResponse.data.addUser.token;
@@ -42,13 +41,8 @@ const handleFormSubmit = async (event) => {
 
       <form onSubmit={handleFormSubmit}>
         <div className="">
-          <label htmlFor="firstName">First Name:</label>
-          <input placeholder="First" name="firstName" type="firstName" id="firstName" onChange={handleChange}/>
-        </div>
-
-        <div className="">
-          <label htmlFor="lastName">Last Name:</label>
-          <input  placeholder="Last" name="lastName" type="lastName" id="lastName" onChange={handleChange}/>
+          <label htmlFor="firstName">Username:</label>
+          <input placeholder="Username" name="Username" type="Username" id="Username" onChange={handleChange}/>
         </div>
 
         <div className="">
