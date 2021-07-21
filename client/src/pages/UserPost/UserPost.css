@@ -52,3 +52,20 @@ input {
   padding: 5px;
   font-weight: bold;
 }
+
+button {
+  border-radius: 5px;
+  padding: 5px;
+  color: var(--secondaryColor);
+}
+
+button:hover {
+  color: var(--accentColor);
+  background-color: var(--primaryColor);
+}
+
+#submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }

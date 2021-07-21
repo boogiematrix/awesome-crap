@@ -234,7 +234,9 @@ const UserPost = (props) => {
             />
         </section>
         </div>
+        <div id="submit">
         <button type="submit">Submit</button>
+        </div>
       </form>
     </div>
     ) : (
