@@ -1,15 +1,12 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
-import Auth from "../../utils/auth";
+// import Auth from "../../utils/auth";
 import { ADD_SALE } from "../../utils/mutations";
 import DatetimePicker from 'react-datetime-picker';
 import { useHistory } from "react-router";
 import { HIDE_DATE_WARNING, SHOW_DATE_WARNING } from "../../utils/actions";
 import { useDispatch, useSelector } from 'react-redux';
 import "./UserPost.css";
-import Header from '../../components/Header/Header';
-import Nav from '../../components/Nav/Nav';
-import Footer from '../../components/Footer/Footer';
 
 const UserPost = (props) => {
   const [formState, setFormState] = useState({
@@ -181,7 +178,6 @@ const UserPost = (props) => {
         </div>
         <button type="submit">Submit</button>
       </form>
-      <Footer />
     </div>
     ) : (
         <h2>You need to be logged in!</h2>

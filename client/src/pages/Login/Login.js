@@ -1,7 +1,4 @@
 import "./Login.css";
-import Header from "../../components/Header/Header";
-import Nav from "../../components/Nav/Nav";
-import Footer from "../../components/Footer/Footer";
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { LOGIN } from '../../utils/mutations';
@@ -36,8 +33,6 @@ const Login = () => {
 
   return (
     <div className="login">
-      <Header />
-      <Nav />
         <form onSubmit={handleFormSubmit}>
           <div className="">
             <label htmlFor="email">Email adress:</label>
@@ -68,7 +63,6 @@ const Login = () => {
             </div>
         </form>
 
-      <Footer />
     </div>
   );
 };
