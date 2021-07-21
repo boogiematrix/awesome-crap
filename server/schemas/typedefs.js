@@ -6,8 +6,6 @@ const typeDefs = gql`
         location: String
         startDate: String
         endDate: String
-        startTime: String
-        endTime: String
         description: String
         image: String
     }
@@ -38,8 +36,6 @@ const typeDefs = gql`
             location: String!,
             startDate: String!,
             endDate: String!,
-            startTime: String!,
-            endTime: String!,
             description: String!,
             image: String,
         ): Sale
@@ -48,8 +44,6 @@ const typeDefs = gql`
             location: String,
             startDate: String,
             endDate: String,
-            startTime: String,
-            endTime: String,
             description: String,
             image: String,
             ): Sale
