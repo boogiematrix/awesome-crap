@@ -27,16 +27,12 @@ export const ADD_SALE = gql`
             $location: String!,
             $startDate: String!,
             $endDate: String!,
-            $startTime: String!,
-            $endTime: String!,
             $description: String!,
             $image: String){
         addSale(
             location:$location,
             startDate: $startDate,
             endDate: $endDate,
-            startTime: $startTime,
-            endTime: $endTime,
             description: $description,
             image: $image
             ){
@@ -53,8 +49,6 @@ export const UPDATE_SALE = gql`
             $location: String,
             $startDate: Strin!,
             $endDate: String,
-            $startTime: String,
-            $endTime: String,
             $description: String,
             $image: String
     ) {
@@ -63,8 +57,6 @@ export const UPDATE_SALE = gql`
             location:$location,
             startDate: $startDate,
             endDate: $endDate,
-            startTime: $startTime,
-            endTime: $endTime,
             description: $description,
             image: $image
         ) {
