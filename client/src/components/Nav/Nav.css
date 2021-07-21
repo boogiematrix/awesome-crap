@@ -1,9 +1,10 @@
 :root {
-  --primaryfont: #ba5816;
-  --secondaryfont: #d55e02;
-  --primaryBG: #8f99a4;
-  --primaryColor: #e0ffcc;
-  --secondaryColor: #0c3f30;
+  --primaryfont: #782d16;
+  --secondaryfont: #d05931;
+  --primaryBG: #c8c3b4;
+  --primaryColor: #708777;
+  --secondaryColor: #a07959;
+  --accentColor: #e5a77d;
 }
 
 .navbar {
@@ -11,14 +12,21 @@
   justify-content: center;
   justify-content: space-evenly;
   padding: 25px;
+  background-color: var(--primaryfont);
+  border: 2px solid grey;
+  border-radius: 20px;
+  margin-left: 70px;
+  margin-right: 70px;
+  margin-top: 40px;
+  box-shadow: 10px 10px 5px grey;
 }
 
 .link {
-    color: #2d4b48;
+    color: var(--primaryColor);
     text-decoration: none;
     font-size: 1.5rem;
 }
 
 .link:hover {
-    color: rgb(9, 9, 131);
+    color: var(--accentColor);
 }

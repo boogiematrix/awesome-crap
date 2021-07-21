@@ -1,11 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Otomanopee+One&display=swap');
 
 :root {
-  --primaryfont: #fb7e2a;
-  --secondaryfont: #d55e02;
-  --primaryBG: #8f99a4;
-  --primaryColor: #599832;
-  --secondaryColor: #0c3f30;
+  --primaryfont: #782d16;
+  --secondaryfont: #d05931;
+  --primaryBG: #c8c3b4;
+  --primaryColor: #708777;
+  --secondaryColor: #a07959;
+  --accentColor: #e5a77d;
 }
 
 body {
@@ -13,7 +14,7 @@ body {
   font-family: 'Otomanopee One', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--primaryBG);
+  background-color: #c8c3b4;
   text-align: center;
 }
 
