@@ -4,6 +4,8 @@ import Auth from "../../utils/auth";
 import { ADD_SALE } from "../../utils/mutations";
 import DatetimePicker from 'react-datetime-picker';
 import { useHistory } from "react-router";
+import { HIDE_DATE_WARNING, SHOW_DATE_WARNING } from "../../utils/actions";
+import { useDispatch, useSelector } from 'react-redux';
 import "./UserPost.css";
 import Header from '../../components/Header/Header';
 import Nav from '../../components/Nav/Nav';
@@ -22,8 +24,9 @@ const UserPost = (props) => {
   });
   const [addSale] = useMutation(ADD_SALE);
   const history = useHistory();
-
-  let dateIsValid = "none"
+  const dispatch = useDispatch();
+  const state = useSelector((state) => state)
+  
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
@@ -34,7 +37,9 @@ const UserPost = (props) => {
       );
     if (!formState.startDate || !formState.endDate) {
       console.log('problemo')
-      dateIsValid = "inline";
+      dispatch({
+        type: SHOW_DATE_WARNING
+      })
       return
     }
     const { data } = await addSale({
@@ -48,6 +53,9 @@ const UserPost = (props) => {
         image: formState.image,
       },
     });
+    dispatch({
+      type: HIDE_DATE_WARNING
+    })
     history.push('/')
   };
 
@@ -77,14 +85,11 @@ const UserPost = (props) => {
     });
   };
 
-  if (!Auth.loggedIn) {
-    return (
-      <h2>You need to be logged in to post!</h2>
-    )
-  }
 
   return (
-    <div>
+    Auth.loggedIn ? (
+
+      <div>
       <Header />
       <Nav />
       <h1 className="addSale">Add A Sale</h1>
@@ -97,37 +102,37 @@ const UserPost = (props) => {
             placeholder="street"
             name="street"
             type="street"
-              id="street"
-              required
+            id="street"
+            required
             onChange={handleChange}
-          />
+            />
           <label htmlFor="city">City:</label>
           <input
             placeholder="city"
             name="city"
             type="city"
-              id="city"
-              required
+            id="city"
+            required
             onChange={handleChange}
-          />
+            />
           <label htmlFor="state">State:</label>
           <input
             placeholder="state"
             name="state"
             type="state"
-              id="state"
-              required
+            id="state"
+            required
             onChange={handleChange}
-          />
+            />
           <label htmlFor="Zip">Zip:</label>
           <input
             placeholder="zip"
             name="zip"
             type="zip"
-              id="zip"
-              required
+            id="zip"
+            required
             onChange={handleChange}
-          />
+            />
         </section>
         </div>
         <div className="saleCategory">
@@ -136,21 +141,21 @@ const UserPost = (props) => {
           <label htmlFor="startDate">Start Date:</label>
           <DatetimePicker
             disableClock={true}
-              disableCalendar={true}
-              name="startDate"
-              minDate={new Date()}
+            disableCalendar={true}
+            name="startDate"
+            minDate={new Date()}
             onChange={handleStartDateChange}
-          />
+            />
           <label htmlFor="endDate">End Date:</label>
           <DatetimePicker
             disableClock={true}
-              disableCalendar={true}
-              name="endDate"
-              minDate={formState.startDate}
+            disableCalendar={true}
+            name="endDate"
+            minDate={formState.startDate}
             onChange={handleEndDateChange}
-          />
+            />
           </section>
-          <h3 style={{ display: dateIsValid , color:"red" }}>Start and end dates required!</h3>
+          <h3 style={{ visibility: state.dateWarning , color:"red" }}>Start and end dates required!</h3>
         </div>
         <div className="saleCategory">
         <h3 className="newSaleSection">Details</h3>
@@ -160,9 +165,10 @@ const UserPost = (props) => {
             placeholder="description"
             name="description"
             type="description"
-            id="description"
+                id="description"
+                required
             onChange={handleChange}
-          />
+            />
           <label htmlFor="image">Image:</label>
           <input
             placeholder="image"
@@ -170,13 +176,16 @@ const UserPost = (props) => {
             name="image"
             id="image"
             onChange={handleChange}
-          />
+            />
         </section>
         </div>
         <button type="submit">Submit</button>
       </form>
       <Footer />
     </div>
+    ) : (
+        <h2>You need to be logged in!</h2>
+  )
   );
 };
 
