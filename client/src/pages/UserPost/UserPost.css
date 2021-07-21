@@ -1,38 +1,39 @@
 :root {
-  --primaryfont: #fb7e2a;
-  --secondaryfont: #d55e02;
-  --primaryBG: #8f99a4;
-  --primaryColor: #599832;
-  --secondaryColor: #0c3f30;
+  --primaryfont: #782d16;
+  --secondaryfont: #d05931;
+  --primaryBG: #c8c3b4;
+  --primaryColor: #708777;
+  --secondaryColor: #a07959;
+  --accentColor: #e5a77d;
 }
 
 form {
-    display: flex;
-    justify-content: center;
-    justify-content: space-evenly;
+  display: flex;
+  justify-content: center;
+  justify-content: space-evenly;
 }
 
 form,
 .addSale {
-    color: var(--secondaryColor);
+  color: var(--secondaryColor);
 }
 
 .saleCategory {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .addSale {
-    font-size: 2.3rem;
+  font-size: 2.3rem;
 }
 
 .newSaleSection {
-    font-size: 1.7rem;
+  font-size: 1.7rem;
 }
 
 label {
-    font-size: 1.3rem;
-    padding: 10px;
+  font-size: 1.3rem;
+  padding: 10px;
 }
 
 section {
@@ -43,11 +44,11 @@ section {
 }
 
 input {
-    height: 40px;
-    width: 150px;
-    margin-right: auto;
-    margin-left: auto;
-    border-radius: 5px;
-    padding: 5px;
-    font-weight: bold;
+  height: 40px;
+  width: 150px;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 5px;
+  padding: 5px;
+  font-weight: bold;
 }
