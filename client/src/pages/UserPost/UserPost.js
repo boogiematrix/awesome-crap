@@ -1,13 +1,10 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
-import Auth from "../../utils/auth";
+// import Auth from "../../utils/auth";
 import { ADD_SALE } from "../../utils/mutations";
 import DatetimePicker from 'react-datetime-picker';
 import { useHistory } from "react-router";
 import "./UserPost.css";
-import Header from '../../components/Header/Header';
-import Nav from '../../components/Nav/Nav';
-import Footer from '../../components/Footer/Footer';
 
 const UserPost = (props) => {
   const [formState, setFormState] = useState({
@@ -85,8 +82,6 @@ const UserPost = (props) => {
 
   return (
     <div>
-      <Header />
-      <Nav />
       <h1 className="addSale">Add A Sale</h1>
       <form onSubmit={handleFormSubmit}>
       <div className="saleCategory">
@@ -175,7 +170,6 @@ const UserPost = (props) => {
         </div>
         <button type="submit">Submit</button>
       </form>
-      <Footer />
     </div>
   );
 };
