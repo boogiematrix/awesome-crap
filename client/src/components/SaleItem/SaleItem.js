@@ -28,11 +28,13 @@ const SaleItem = (props) => {
   return (
     <section className="saleItem">
       <div className="saleItemBox">
+
         <p>{location}</p>
         <p>{startDate}</p>
         <p>{endDate}</p>
         <p>{description}</p>
-        <button onClick={isInteresting}>Toggle Button</button>
+        <button className="saleItemBtn" onClick={isInteresting}>I Want This Crap!</button>
+
       </div>
     </section>
   );

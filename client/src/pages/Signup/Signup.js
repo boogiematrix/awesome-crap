@@ -35,10 +35,13 @@ const Signup = () => {
 
   return (
     <div className="signup">
-      <form onSubmit={handleFormSubmit}>
-        <div className="">
-          <label htmlFor="username">Username:</label>
+      <form className="signupForm" onSubmit={handleFormSubmit}>
+        <div className="signupSections">
+          <label className="signupLabel" htmlFor="username">
+            Username:
+          </label>
           <input
+            className="signupInput"
             placeholder="username"
             name="username"
             type="username"
@@ -47,9 +50,12 @@ const Signup = () => {
           />
         </div>
 
-        <div className="">
-          <label htmlFor="email">Email:</label>
+        <div className="signupSections">
+          <label className="signupLabel" htmlFor="email">
+            Email:
+          </label>
           <input
+            className="signupInput"
             placeholder="youremail@test.com"
             name="email"
             type="email"
@@ -58,9 +64,12 @@ const Signup = () => {
           />
         </div>
 
-        <div className="">
-          <label htmlFor="pwd">Password:</label>
+        <div className="signupSections">
+          <label className="signupLabel" htmlFor="pwd">
+            Password:
+          </label>
           <input
+            className="signupInput"
             placeholder="******"
             name="password"
             type="password"
@@ -68,8 +77,8 @@ const Signup = () => {
             onChange={handleChange}
           />
         </div>
-        <div className="">
-          <button type="submit">Submit</button>
+        <div className="signupSections">
+          <button className="signupButton" type="submit">Submit</button>
         </div>
       </form>
     </div>

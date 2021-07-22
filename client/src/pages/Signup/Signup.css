@@ -6,3 +6,51 @@
   --secondaryColor: #a07959;
   --accentColor: #e5a77d;
 }
+
+.signupForm {
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+}
+
+.signupSections {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.signupLabel,
+.signupButton {
+  color: var(--primaryfont);
+  font-size: 1.7rem;
+}
+
+.signupInput {
+  width: 20%;
+}
+
+.signupButton {
+  font-weight: bold;
+  width: 150px;
+  height: 60px;
+  cursor: pointer;
+  font-size: 1.5;
+  background-color: #a9c6b1;
+  font-family: 'Otomanopee One', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.signupInput,
+.signupButton {
+  border: 5px solid var(--primaryColor);
+  border-radius: 10px;
+  box-shadow: 10px 10px 5px grey;
+}
+
+
+
+
+
+
