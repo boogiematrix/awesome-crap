@@ -64,7 +64,7 @@ button:hover {
   background-color: var(--primaryColor);
 }
 
-#submit {
+.submit {
     display: flex;
     align-items: center;
     justify-content: center;
