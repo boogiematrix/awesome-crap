@@ -7,8 +7,6 @@ const SaleList = () => {
             {/* TODO: Create loop for available sale items */}
             {/* Is this a list??? */}
             <SaleItem />
-            <SaleItem />
-            <SaleItem />
         </div>
     )
 }

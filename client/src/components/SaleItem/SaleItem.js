@@ -1,14 +1,17 @@
-import './SaleItem.css';
+import "./SaleItem.css";
 
 const SaleItem = () => {
-    return (
-        <div className="saleItem">
-            <p>Where?</p>
-            <p>What days?</p>
-            <p>What time?</p>
-            <p>Description</p>
-        </div>
-    )
-}
+  return (
+    <section className="saleItem">
+      <div className="saleItemBox">
+        <p>Where?</p>
+        <p>What days?</p>
+        <p>What time?</p>
+        <p>Description</p>
+        <button>Toggle Button</button>
+      </div>
+    </section>
+  );
+};
 
-export default SaleItem
+export default SaleItem;

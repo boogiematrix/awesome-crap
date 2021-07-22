@@ -6,3 +6,18 @@
   --secondaryColor: #a07959;
   --accentColor: #e5a77d;
 }
+
+.saleItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.saleItemBox {
+  padding: 30px;
+  margin: 40px;
+  border: 7px solid var(--secondaryfont);
+  border-radius: 20px;
+  box-shadow: 10px 10px 5px grey;
+  width: 25%;
+}
