@@ -1,24 +1,22 @@
 import "./Login.css";
-import React, { useState } from 'react';
-import { useMutation } from '@apollo/client';
-import { LOGIN } from '../../utils/mutations';
-import Auth from '../../utils/auth';
-
+import React, { useState } from "react";
+import { useMutation } from "@apollo/client";
+import { LOGIN } from "../../utils/mutations";
+import Auth from "../../utils/auth";
 
 const Login = () => {
-
-  const [formState, setFormState] = useState({ email: '', password: ''});
+  const [formState, setFormState] = useState({ email: "", password: "" });
   const [login, { error }] = useMutation(LOGIN);
 
-  const handleFormSubmit  = async (event) => {
+  const handleFormSubmit = async (event) => {
     event.preventDefault();
-    try{
+    try {
       const mutationResponse = await login({
-        variables : { email: formState.email, password: formState.password },
+        variables: { email: formState.email, password: formState.password },
       });
       const token = mutationResponse.data.login.token;
       Auth.login(token);
-    }catch (error){
+    } catch (error) {
       console.log(error);
     }
   };
@@ -27,42 +25,46 @@ const Login = () => {
     const { name, value } = event.target;
     setFormState({
       ...formState,
-    [ name]: value,
+      [name]: value,
     });
   };
 
   return (
     <div className="login">
-        <form onSubmit={handleFormSubmit}>
-          <div className="">
-            <label htmlFor="email">Email adress:</label>
-            <input placeholder="youremail@test.com"
-                   name="email"
-                   type="email"
-                   id="email"
-                   onChange={handleChange}
-              />
-          </div>
+      <form className="loginForm" onSubmit={handleFormSubmit}>
+        <div className="loginSections">
+          <label className="loginLabel" htmlFor="email">Email Address:</label>
+          <input
+            className="loginInput"
+            placeholder="youremail@test.com"
+            name="email"
+            type="email"
+            id="email"
+            onChange={handleChange}
+          />
+        </div>
+        <div className="loginSections">
+          <label className="loginLabel" htmlFor="pwd">Password:</label>
+          <input
+            className="loginInput"
+            placeholder="******"
+            name="password"
+            type="password"
+            id="pwd"
+            onChange={handleChange}
+          />
+        </div>
+        {error ? (
           <div>
-            <label htmlFor="pwd">password:</label>
-            <input
-              placeholder="******"
-              name="password"
-              type="password"
-              id="pwd"
-              onChange={handleChange}
-            />
+            <p className="loginLabel">
+              Incorrect email and/or password! please try again.
+            </p>
           </div>
-            { error ? (
-              <div>
-                <p className="">Incorrect email and/or password! please try again.</p>
-                </div>
-              ) : null}
-            <div>
-              <button type="submit">Submit</button>
-            </div>
-        </form>
-
+        ) : null}
+        <div className="loginSections">
+          <button className="loginButton" type="submit">Submit</button>
+        </div>
+      </form>
     </div>
   );
 };
