@@ -227,6 +227,7 @@ const UserPost = (props) => {
           <label htmlFor="image">Image:</label>
           <input
             placeholder="image"
+            accept=".png, .jpg, .jpeg"
             alt={formState.description}
             name="image"
             id="image"
