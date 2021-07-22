@@ -6,3 +6,40 @@
   --secondaryColor: #a07959;
   --accentColor: #e5a77d;
 }
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+}
+
+.loginSections {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loginLabel,
+.loginButton {
+  color: var(--primaryfont);
+  font-size: 1.7rem;
+}
+
+.loginInput {
+  width: 250px;
+}
+
+.loginButton {
+  font-weight: bold;
+  width: 150px;
+  height: 60px;
+  cursor: pointer;
+}
+
+.loginInput,
+.loginButton {
+  border: 5px solid var(--primaryColor);
+  border-radius: 10px;
+  box-shadow: 10px 10px 5px grey;
+}
