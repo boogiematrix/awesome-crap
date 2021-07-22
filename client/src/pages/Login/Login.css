@@ -27,7 +27,7 @@
 }
 
 .loginInput {
-  width: 250px;
+  width: 20%;
 }
 
 .loginButton {
@@ -35,6 +35,10 @@
   width: 150px;
   height: 60px;
   cursor: pointer;
+  background-color: #a9c6b1;
+  font-family: 'Otomanopee One', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .loginInput,

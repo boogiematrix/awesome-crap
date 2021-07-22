@@ -8,7 +8,7 @@ const SaleItem = () => {
         <p>What days?</p>
         <p>What time?</p>
         <p>Description</p>
-        <button>Toggle Button</button>
+        <button className="saleItemBtn">I Want This Crap!</button>
       </div>
     </section>
   );
