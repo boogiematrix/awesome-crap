@@ -32,8 +32,7 @@
 
 .signupButton {
   font-weight: bold;
-  width: 150px;
-  height: 60px;
+  font-size: 1.7rem;
   cursor: pointer;
   font-size: 1.5;
   background-color: #a9c6b1;
