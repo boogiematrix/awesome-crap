@@ -6,3 +6,16 @@
   --secondaryColor: #a07959;
   --accentColor: #e5a77d;
 }
+
+.signup {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
