@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import Auth from "../../utils/auth";
 import { ADD_USER } from "../../utils/mutations";
-import { Link } from 'react-router-dom';
 
 const Signup = () => {
   const [formState, setFormState] = useState({
@@ -79,9 +78,9 @@ const Signup = () => {
             onChange={handleChange}
           />
         </div>
-        <Link to="/userpost" className="signupSections">
+        <div className="signupSections">
           <button className="signupButton" type="submit">Submit</button>
-        </Link>
+        </div>
       </form>
     </div>
   );
