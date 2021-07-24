@@ -36,3 +36,16 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+@media only screen and (max-width: 1200px) {
+   .saleItemBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    padding: 0;
+    /* margin: 5px; */
+    width: 60%;
+   }
+  }

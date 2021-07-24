@@ -6,3 +6,23 @@
   --secondaryColor: #a07959;
   --accentColor: #e5a77d;
 }
+
+@media only screen and (max-width: 1200px) {
+  .saleList {
+     font-size: 4vw;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-content: center;
+     align-items: center;
+     padding: 10px;
+   }
+   .saleItem {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    width: 150%;
+   }
+  }
