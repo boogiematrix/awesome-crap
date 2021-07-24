@@ -30,3 +30,12 @@
 .link:hover {
     color: var(--accentColor);
 }
+
+@media only screen and (max-width: 1000px) {
+  .navbar, .link {
+     font-size: 4vw;
+   }
+   .navbar {
+     align-content: center;
+   }
+  }
