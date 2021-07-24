@@ -29,3 +29,15 @@ header {
 .headerDescription {
   padding-bottom: 20px;
 }
+
+@media only screen and (max-width: 1000px) {
+  .headerTitle, .headerDescription {
+     font-size: 6vw;
+   }
+   .headerDescription {
+    font-size: 3vw;
+   }
+   header {
+     align-content: center;
+   }
+  }
