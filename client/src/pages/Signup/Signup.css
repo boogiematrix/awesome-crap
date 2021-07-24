@@ -8,16 +8,64 @@
 }
 
 .signup {
-  padding: 40px;
   display: flex;
+  align-items: center;
   flex-direction: column;
-  justify-content: space-around;
 }
 
-.button {
+.signupHeader {
+  font-size: 3.5rem;
+  color: var(--secondaryfont);
+  margin-top: 50px;
+  text-shadow: 10px 10px 5px grey;
+}
+
+.signupForm {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  margin: 40px;
+  border: 8px solid var(--primaryColor);
+  border-radius: 60px;
+  background-color: rgb(210, 205, 205);
+  box-shadow: 10px 10px 5px grey;
+  width: 30%;
+  height: 20%;
+}
+
+.signupSections {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+}
+
+.signupLabel,
+.signupButton {
+  color: var(--primaryfont);
+  font-size: 1.7rem;
+}
+
+.signupInput {
+  width: 50%;
+}
+
+.signupButton {
+  font-weight: bold;
+  font-size: 1.7rem;
+  cursor: pointer;
+  font-size: 1.5;
+  background-color: #a9c6b1;
+  font-family: 'Otomanopee One', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+}
+
+.signupInput,
+.signupButton {
+  border: 5px solid var(--secondaryColor);
+  border-radius: 10px;
 }
 
 @media only screen and (max-width: 1200px) {

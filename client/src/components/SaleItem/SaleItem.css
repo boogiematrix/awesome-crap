@@ -6,3 +6,33 @@
   --secondaryColor: #a07959;
   --accentColor: #e5a77d;
 }
+
+.saleItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.saleItemBox {
+  padding: 30px;
+  margin: 40px;
+  border: 7px solid var(--secondaryfont);
+  border-radius: 20px;
+  box-shadow: 10px 10px 5px grey;
+  background-color: rgb(210, 205, 205);
+  width: 25%;
+}
+
+.saleItemBtn {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: var(--secondaryfont);
+  cursor: pointer;
+  border: 3px solid var(--primaryColor);
+  border-radius: 5px;
+  box-shadow: 10px 10px 5px grey;
+  background-color: #a9c6b1;
+  font-family: 'Otomanopee One', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
