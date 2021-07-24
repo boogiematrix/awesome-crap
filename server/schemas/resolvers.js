@@ -72,6 +72,7 @@ const resolvers = {
             throw new AuthenticationError("You must be logged in to delete a sale")
         },
         saveSale: async (parent, args, context) => {
+            console.log(`saved: ${args}`)
             if (context.user) {
                 const updatedUser = await User.findOneAndUpdate(
                     { _id: context.user._id },
@@ -80,6 +81,19 @@ const resolvers = {
                 )
                 return updatedUser
             }
+            throw new AuthenticationError("You must be logged in to save a sale")
+        },
+        unsaveSale: async (parent, args, context) => {
+            console.log(`unsaved: ${args}`)
+            if (context.user) {
+                const updatedUser = await User.findByIdAndUpdate(
+                    { _id: context.user._id },
+                    { $pull: { savedSales: { _id: args._id } } },
+                    {new: true}
+                )
+                return updatedUser
+            }
+            throw new AuthenticationError("You must be logged in to unsave a sale")
         }
     }
 }

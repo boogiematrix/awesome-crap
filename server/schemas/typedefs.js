@@ -59,6 +59,9 @@ const typeDefs = gql`
             description: String!,
             image: String
             ): User
+        unsaveSale(
+            _id: ID!
+        ): User
     }
 `
 
