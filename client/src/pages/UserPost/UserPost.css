@@ -62,7 +62,7 @@ button {
   font-size: 2rem;
   color: var(--secondaryfont);
   cursor: pointer;
-  border: 3px solid var(--primaryColor);
+  border: 5px solid var(--primaryColor);
   border-radius: 8px;
   box-shadow: 10px 10px 5px grey;
   background-color: #a9c6b1;

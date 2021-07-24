@@ -19,13 +19,13 @@ header {
     box-shadow: 10px 10px 5px grey;
 }
 
-h1 {
+.headerTitle {
     font-size: 4rem;
     margin: 0;
     padding-top: 30px;
     padding-bottom: 30px;
 }
 
-h2 {
+.headerDescription {
   padding-bottom: 20px;
 }
