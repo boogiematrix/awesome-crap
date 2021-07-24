@@ -23,6 +23,10 @@ const saleSchema = new Schema(
         image: {
             type: String,
             required: false
+        },
+        creator: {
+            type: Schema.Types.ObjectId,
+            ref: 'User'
         }
     }
 );

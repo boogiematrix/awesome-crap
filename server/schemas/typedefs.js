@@ -8,6 +8,7 @@ const typeDefs = gql`
         endDate: String
         description: String
         image: String
+        creator: ID
     }
     
     type User {
@@ -16,6 +17,7 @@ const typeDefs = gql`
         email: String
         password: String
         sales: [Sale]
+        savedSales: [ID]
     }
 
     type Auth {
@@ -38,6 +40,7 @@ const typeDefs = gql`
             endDate: String!,
             description: String!,
             image: String,
+            creator: ID!
         ): Sale
         updateSale(
             _id: ID!,
@@ -48,6 +51,14 @@ const typeDefs = gql`
             image: String,
             ): Sale
         removeSale(_id: ID!): Sale
+        saveSale(
+            _id: ID!,
+            location: String!,
+            startDate: String!,
+            endDate: String!,
+            description: String!,
+            image: String
+            ): User
     }
 `
 

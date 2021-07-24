@@ -76,3 +76,26 @@ export const REMOVE_SALE = gql`
         }
     }
 `;
+
+export const SAVE_SALE = gql`
+    mutation saveSale(
+           $_id: ID!,
+            $location: String,
+            $startDate: Strin!,
+            $endDate: String,
+            $description: String,
+            $image: String
+    ) {
+        saveSale(
+             _id: $_id
+            location:$location,
+            startDate: $startDate,
+            endDate: $endDate,
+            description: $description,
+            image: $image
+        ) {
+            _id
+            username
+        }
+    }
+`;

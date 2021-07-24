@@ -40,8 +40,12 @@ const resolvers = {
         },
         addSale: async (parent, args, context) => {
             if (context.user) {
-                const sale = await Sale.create(args)
-                return sale
+                const sale = await Sale.create(args);
+                const updatedUser = await User.findByIdAndUpdate(
+                    { _id: context.user._id },
+                    { $addToSet: { sales: sale } },
+                    { new: true, runValidators: true })
+                return sale 
             } else {
                 throw new AuthenticationError("You're not logged in!")
             }
@@ -66,6 +70,16 @@ const resolvers = {
                 return removedSale
             }
             throw new AuthenticationError("You must be logged in to delete a sale")
+        },
+        saveSale: async (parent, args, context) => {
+            if (context.user) {
+                const updatedUser = await User.findOneAndUpdate(
+                    { _id: context.user._id },
+                    { $addToSet: { savedSales: args } },
+                    { new: true, runValidators: true }
+                )
+                return updatedUser
+            }
         }
     }
 }
