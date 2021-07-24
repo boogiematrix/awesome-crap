@@ -15,6 +15,9 @@ const resolvers = {
         },
         sale: async (parent, {_id}) => {
             return await Sale.findById(_id)
+        },
+        users: async (parent, args, context) => {
+            return User.find()
         }
     },
     Mutation: {
@@ -45,6 +48,7 @@ const resolvers = {
                     { _id: context.user._id },
                     { $addToSet: { sales: sale } },
                     { new: true, runValidators: true })
+                console.log(updatedUser)
                 return sale 
             } else {
                 throw new AuthenticationError("You're not logged in!")
@@ -72,19 +76,21 @@ const resolvers = {
             throw new AuthenticationError("You must be logged in to delete a sale")
         },
         saveSale: async (parent, args, context) => {
-            console.log(`saved: ${args}`)
+            console.log(`saved: ${args.location}`)
+            console.log(context.user)
             if (context.user) {
                 const updatedUser = await User.findOneAndUpdate(
                     { _id: context.user._id },
                     { $addToSet: { savedSales: args } },
-                    { new: true, runValidators: true }
+                    { new: true}
                 )
+                console.log(updatedUser)
                 return updatedUser
             }
             throw new AuthenticationError("You must be logged in to save a sale")
         },
         unsaveSale: async (parent, args, context) => {
-            console.log(`unsaved: ${args}`)
+            console.log(`unsaved: ${args._id}`)
             if (context.user) {
                 const updatedUser = await User.findByIdAndUpdate(
                     { _id: context.user._id },

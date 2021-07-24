@@ -20,7 +20,9 @@ const userSchema = new Schema(
       required: true,
     },
     sales: [Sale.schema],
-    savedSales: [Sale.schema]
+    savedSales: {
+      type: Sale.schema,
+    }
   },
   
   {

@@ -79,9 +79,9 @@ const Signup = () => {
             onChange={handleChange}
           />
         </div>
-        <Link to="/userpost" className="signupSections">
+        <div className="signupSections">
           <button className="signupButton" type="submit">Submit</button>
-        </Link>
+        </div>
       </form>
     </div>
   );

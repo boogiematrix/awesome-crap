@@ -64,9 +64,9 @@ const Login = () => {
           </div>
         ) : null}
         {/* <div className="loginSections"> */}
-        <Link to="/userpost" className="loginSections">
+        <div className="loginSections">
           <button className="loginButton" type="submit">Submit</button>
-        </Link>
+        </div>
       </form>
     </div>
   );

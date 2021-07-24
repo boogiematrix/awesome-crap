@@ -17,7 +17,7 @@ const typeDefs = gql`
         email: String
         password: String
         sales: [Sale]
-        savedSales: [ID]
+        savedSales: [Sale]
     }
 
     type Auth {
@@ -28,7 +28,8 @@ const typeDefs = gql`
     type Query{
         me: User
         sales: [Sale]
-        sale(_id: ID!): Sale 
+        sale(_id: ID!): Sale
+        users: [User]
     }
 
     type Mutation {
@@ -40,7 +41,7 @@ const typeDefs = gql`
             endDate: String!,
             description: String!,
             image: String,
-            creator: ID!
+            creator: ID
         ): Sale
         updateSale(
             _id: ID!,

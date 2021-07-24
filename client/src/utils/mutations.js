@@ -79,9 +79,9 @@ export const REMOVE_SALE = gql`
 
 export const SAVE_SALE = gql`
     mutation saveSale(
-           $_id: ID!,
+            $_id: ID!,
             $location: String!,
-            $startDate: Strin!,
+            $startDate: String!,
             $endDate: String!,
             $description: String!,
             $image: String

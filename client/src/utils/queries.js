@@ -5,14 +5,6 @@ export const GET_ME = gql`
         me{
             _id
             username
-            sales{
-                 _id
-                location
-                description
-                startDate
-                endDate
-                image
-            }
             savedSales{
                 _id
                 location

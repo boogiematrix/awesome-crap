@@ -24,28 +24,34 @@ const SaleItem = (props) => {
   let isInterested = savedSales.includes(_id)
 
   const imInterested = async () => {
+    dispatch({
+      type: TOGGLE_INTERESTED_IN,
+      isInterested: isInterested,
+      saleID: _id
+    })
     if (isInterested) {
-      dispatch({
-        type: TOGGLE_INTERESTED_IN,
-        isInterested: isInterested,
-        saleID: _id
-      })
       await unsaveSale({
         variables: {
           _id: _id
         }
       })
     } else {
-      await saveSale({
-        variables: {
-          _id,
-          location,
-          startDate,
-          endDate,
-          description,
-          image
-        }
-      })
+      try {
+
+        await saveSale({
+          variables: {
+            _id: _id,
+            location: location,
+            startDate: startDate,
+            endDate: endDate,
+            description: description,
+            image: image
+          }
+        })
+        console.log(error)
+      } catch (err) {
+        console.log(err)
+      }
     }
   }
 console.log(savedSales)
