@@ -26,9 +26,9 @@ export const reducer = createReducer(initialState, (builder) => {
             state.dateWarning = "hidden"
         })
         .addCase(TOGGLE_INTERESTED_IN, (state, action) => {
-            let isInterested = state.savedSales.includes(action.saleID);
-            if (isInterested) {
-                state.savedSales.filter((saleID) => saleID !== action.saleID)
+            console.log(action)
+            if (action.isInterested) {
+                state.savedSales = state.savedSales.filter((id) => id !== action.saleID)
             } else {
                 state.savedSales.push(action.saleID)
             }
