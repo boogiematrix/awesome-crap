@@ -21,7 +21,7 @@ const userSchema = new Schema(
     },
     sales: [Sale.schema],
     savedSales: {
-      type: Sale.schema,
+      type: [Sale.schema],
     }
   },
   

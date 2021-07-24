@@ -1,15 +1,20 @@
-import React from 'react'
-import { useMutation } from '@apollo/client';
+import React, {useEffect} from 'react'
+import { useMutation, useQuery } from '@apollo/client';
 import { TOGGLE_INTERESTED_IN } from '../../utils/actions';
+import { GET_ME } from '../../utils/queries';
 import { SAVE_SALE, UNSAVE_SALE } from '../../utils/mutations';
 import { useDispatch, useSelector } from 'react-redux';
 import "./SaleItem.css";
 
+
 const SaleItem = (props) => {
+let userData = {}
+
   const dispatch = useDispatch();
   const state = useSelector((state) => state)
   const [saveSale, { error }] = useMutation(SAVE_SALE)
   const [unsaveSale] = useMutation(UNSAVE_SALE)
+  const { loading, data } = useQuery(GET_ME)
   
   const {
     _id,
@@ -21,7 +26,15 @@ const SaleItem = (props) => {
   } = props
 
   const { savedSales } = state;
+
+  if (!loading) {
+    userData = data.me;
+  }
   let isInterested = savedSales.includes(_id)
+
+
+console.log(userData)
+  
 
   const imInterested = async () => {
     dispatch({
@@ -37,7 +50,6 @@ const SaleItem = (props) => {
       })
     } else {
       try {
-
         await saveSale({
           variables: {
             _id: _id,
@@ -48,7 +60,6 @@ const SaleItem = (props) => {
             image: image
           }
         })
-        console.log(error)
       } catch (err) {
         console.log(err)
       }
