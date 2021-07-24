@@ -57,7 +57,16 @@ input {
   font-weight: bold;
 }
 
-button {
+#upload_widget {
+  font-size: 1.3rem;
+  color: #660099;
+  background-color: #ff6600;
+  border-radius: 3em;
+  padding: 0.3em 1.2em;
+  border: none;
+}
+
+.userpostSubmitBtn {
   font-weight: bold;
   font-size: 2rem;
   color: var(--secondaryfont);
@@ -79,28 +88,28 @@ button:hover {
 }
 
 .submit {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 @media only screen and (max-width: 1000px) {
-    .infoSection {
-       font-size: 4vw;
-       display: flex;
-       flex-direction: column;
-       align-items: center;
-       justify-content: space-evenly;
-       padding: 10px;
-     }
-     .saleCategory {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      justify-content: space-evenly;
-      width: 90%;
-     }
-     button {
-       font-size: 4vw;
-     }
-    }
+  .infoSection {
+    font-size: 4vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 10px;
+  }
+  .saleCategory {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-content: space-evenly;
+    width: 90%;
+  }
+  button {
+    font-size: 4vw;
+  }
+}
