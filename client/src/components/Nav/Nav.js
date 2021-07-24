@@ -10,6 +10,9 @@ const Nav = () => {
       </Link>
       {Auth.loggedIn() ? (
         <>
+          <Link className="userCrapLink link" to="usercrap">
+            User Crap
+          </Link>
           <Link className="postLink link" to="userpost">
             Post
           </Link>
