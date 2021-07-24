@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { LOGIN } from "../../utils/mutations";
 import Auth from "../../utils/auth";
-import { Link } from 'react-router-dom';
 
 const Login = () => {
   const [formState, setFormState] = useState({ email: "", password: "" });
@@ -63,10 +62,9 @@ const Login = () => {
             </p>
           </div>
         ) : null}
-        {/* <div className="loginSections"> */}
-        <Link to="/userpost" className="loginSections">
+        <div className="loginSections">
           <button className="loginButton" type="submit">Submit</button>
-        </Link>
+        </div>
       </form>
     </div>
   );
