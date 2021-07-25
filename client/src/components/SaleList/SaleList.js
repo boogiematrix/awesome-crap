@@ -10,10 +10,12 @@ import SaleItem from "../SaleItem/SaleItem";
 
 const SaleList = () => {
 
+
     const { loading: loadingMe, data: dataMe } = useQuery(GET_ME);
     const { loading, data } = useQuery(GET_ALL_SALES)
 
     if (loading || loadingMe) {
+
 
         return (<h3>Loading...</h3>)
     } else {
