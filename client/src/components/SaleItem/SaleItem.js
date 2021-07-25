@@ -1,5 +1,6 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import { useMutation, useQuery } from '@apollo/client';
+import Auth  from '../../utils/auth'
 import { TOGGLE_INTERESTED_IN } from '../../utils/actions';
 import { GET_ME } from '../../utils/queries';
 import { SAVE_SALE, UNSAVE_SALE } from '../../utils/mutations';
@@ -22,19 +23,13 @@ let userData = {}
     startDate,
     endDate,
     description,
-    image
+    image,
+    mySavedSales
   } = props
 
   const { savedSales } = state;
-
-  if (!loading) {
-    userData = data.me;
-  }
-  let isInterested = savedSales.includes(_id)
-
-
-console.log(userData)
   
+  let isInterested = savedSales.includes(_id) || mySavedSales.includes(_id)
 
   const imInterested = async () => {
     dispatch({
@@ -65,7 +60,6 @@ console.log(userData)
       }
     }
   }
-console.log(savedSales)
   
     return (
       <section className="saleItem">
