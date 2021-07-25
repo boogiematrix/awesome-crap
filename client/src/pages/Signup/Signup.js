@@ -10,7 +10,7 @@ const Signup = () => {
     email: "",
     password: "",
   });
-  const [addUser] = useMutation(ADD_USER);
+  const [addUser, { error }] = useMutation(ADD_USER);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -78,6 +78,13 @@ const Signup = () => {
             onChange={handleChange}
           />
         </div>
+        {error ? (
+          <div>
+            <p className="signupLabel">
+              This user is already signed up. Go to login. 
+            </p>
+          </div>
+        ) : null}
         <div className="signupSections">
           <button className="signupButton" type="submit">Submit</button>
         </div>

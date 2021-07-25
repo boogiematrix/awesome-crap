@@ -192,6 +192,7 @@ const UserPost = (props) => {
             <section className="saleBox">
               <label htmlFor="startDate">Start Date:</label>
               <DatetimePicker
+              className="dateButton"
                 disableClock={true}
                 disableCalendar={true}
                 name="startDate"
@@ -200,6 +201,7 @@ const UserPost = (props) => {
               />
               <label htmlFor="endDate">End Date:</label>
               <DatetimePicker
+              className="dateButton"
                 disableClock={true}
                 disableCalendar={true}
                 name="endDate"
