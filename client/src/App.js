@@ -13,6 +13,7 @@ import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
 import Signup from "./pages/Signup/Signup";
 import UserPost from "./pages/UserPost/UserPost";
+import UserCrap from "./pages/UserCrap/UserCrap";
 import NoMatch from "./pages/NoMatch/NoMatch";
 import Header from "../src/components/Header/Header";
 import Nav from "../src/components/Nav/Nav";
@@ -50,6 +51,7 @@ function App() {
               <Route exact path="/login" component={Login} />
               <Route exact path="/signup" component={Signup} />
               <Route exact path="/userpost" component={UserPost} />
+              <Route exact path="/usercrap" component={UserCrap} />
               <Route component={NoMatch} />
             </Switch>
             <Footer />
