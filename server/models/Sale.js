@@ -8,11 +8,11 @@ const saleSchema = new Schema(
             trim: true
         },
         startDate: {
-            type: Date,
+            type: String,
             required: true,
         },
         endDate: {
-            type: Date,
+            type: String,
             required: true
         },
         description: {
@@ -23,6 +23,10 @@ const saleSchema = new Schema(
         image: {
             type: String,
             required: false
+        },
+        creator: {
+            type: Schema.Types.ObjectId,
+            ref: 'User'
         }
     }
 );

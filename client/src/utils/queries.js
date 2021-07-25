@@ -5,9 +5,12 @@ export const GET_ME = gql`
         me{
             _id
             username
-            sale{
+            savedSales{
+                _id
                 location
                 description
+                startDate
+                endDate
             }
         }
     }
@@ -29,6 +32,7 @@ export const GET_ALL_SALES = gql`
 export const GET_ONE_SALE = gql`
     query sale($_id: ID!){
         sale(_id: $_id){
+            _id
             location
             startDate
             endDate
