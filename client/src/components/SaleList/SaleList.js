@@ -15,13 +15,11 @@ const SaleList = () => {
     const { loading, data } = useQuery(GET_ALL_SALES)
 
     if (loading || loadingMe) {
-
-
         return (<h3>Loading...</h3>)
     } else {
         let mySavedSales = [];
         console.log(data)
-        if (Auth.loggedIn) {
+        if (Auth.loggedIn()) {
             dataMe?.me.savedSales.map(({_id}) =>  mySavedSales.push(_id))
         }
         return (
