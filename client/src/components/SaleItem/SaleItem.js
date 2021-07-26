@@ -69,10 +69,10 @@ let userData = {}
         <p>{startDate}</p>
         <p>{endDate}</p>
         <p>{description}</p>
-        {isInterested ? (<button className="saleItemBtn" onClick={imInterested}>I'm Aware of This Crap</button>)
-       : <button className="saleItemBtn" onClick={imInterested}>I Want This Crap!</button>
-      }
-
+        
+          {Auth.loggedIn() ? (isInterested ? (<button className="saleItemBtn" onClick={imInterested}>I'm Aware of This Crap</button>)
+            : <button className="saleItemBtn" onClick={imInterested}>I Want This Crap!</button>
+          ) : (<p></p>)}
       </div>
     </section>
   );
