@@ -22,7 +22,7 @@ const SaleList = () => {
         let mySavedSales = [];
         console.log(data)
         if (Auth.loggedIn) {
-            dataMe.me.savedSales.map(({_id}) =>  mySavedSales.push(_id))
+            dataMe?.me.savedSales.map(({_id}) =>  mySavedSales.push(_id))
         }
         return (
             <div className="saleList">
