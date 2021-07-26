@@ -1,9 +1,11 @@
+import SaleList from "../../components/SaleList/SaleList";
 import "./UserCrap.css";
 
-const userCrap = () => {
+
+const userCrap = (props) => {
     return (
-        <div>
-            
+        <div className='usercrap'>
+            <SaleList location={props.location}/>
         </div>
     )
 }

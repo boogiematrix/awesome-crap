@@ -1,10 +1,10 @@
 import "./Home.css";
 import SaleList from '../../components/SaleList/SaleList';
 
-const Home = () => {
+const Home = (props) => {
   return (
     <div className="home">
-      <SaleList />
+      <SaleList location={props.location}/>
     </div>
   );
 };
