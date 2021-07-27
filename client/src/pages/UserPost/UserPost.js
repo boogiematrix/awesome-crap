@@ -268,7 +268,6 @@ const UserPost = (props) => {
                 name="file"
                 placeholder="Upload an Image"
                 accept=".png, .jpg, .jpeg"
-                alt={formState.image}
                 id="image"
                 onChange={uploadImage}
               />
@@ -278,7 +277,7 @@ const UserPost = (props) => {
               ) : (
                 <img
                   src={formState.image}
-                  alt=""
+                  alt={formState.description}
                   style={{ maxWidth: "300px", maxHeight: "300px" }}
                 />
               )}

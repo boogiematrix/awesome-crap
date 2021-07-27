@@ -11,6 +11,15 @@ export const GET_ME = gql`
                 description
                 startDate
                 endDate
+                image
+            }
+            sales{
+                 _id
+                location
+                description
+                startDate
+                endDate
+                image
             }
         }
     }
