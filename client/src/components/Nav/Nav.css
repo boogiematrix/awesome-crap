@@ -15,9 +15,7 @@
   background-color: var(--primaryfont);
   border: 2px solid grey;
   border-radius: 20px;
-  margin-left: 70px;
-  margin-right: 70px;
-  margin-top: 40px;
+  margin: 40px 70px 0 70px;
   box-shadow: 10px 10px 5px grey;
 }
 
@@ -37,5 +35,6 @@
    }
    .navbar {
      align-content: center;
+     margin: 0 35px 0 35px;
    }
   }
