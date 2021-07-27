@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useMutation} from '@apollo/client';
 import Auth  from '../../utils/auth'
 import { TOGGLE_INTERESTED_IN } from '../../utils/actions';
@@ -21,8 +21,6 @@ const SaleItem = (props) => {
     endDate,
     description,
     image,
-    //mySavedSales,
-    pathname
   } = props
 
   const { savedSales } = state;
@@ -36,16 +34,7 @@ const SaleItem = (props) => {
     image: image
   }
   
-  //let initialInterest = !mySavedSales.includes(_id)
   let isInterested = savedSalesIds.includes(_id)
-  // useEffect(() => {
-    
-  //   dispatch({
-  //     type: TOGGLE_INTERESTED_IN,
-  //     isInterested: initialInterest,
-  //     sale: sale
-  //   })
-  // }, [])
   
   const imInterested = async () => {
     dispatch({
@@ -86,7 +75,7 @@ const SaleItem = (props) => {
         <p>{endDate}</p>
         <p>{description}</p>
         
-          {Auth.loggedIn() && pathname === '/' ? (isInterested ? (<button className="saleItemBtn" onClick={imInterested}>I'm Aware of This Crap</button>)
+          {Auth.loggedIn()  ? (isInterested ? (<button className="saleItemBtn" onClick={imInterested}>I'm Aware of This Crap</button>)
             : <button className="saleItemBtn" onClick={imInterested}>I Want This Crap!</button>
           ) : (<p></p>)}
       </div>
