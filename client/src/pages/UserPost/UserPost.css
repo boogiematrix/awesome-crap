@@ -57,13 +57,9 @@ input {
   font-weight: bold;
 }
 
-#upload_widget {
-  font-size: 1.3rem;
-  color: #660099;
-  background-color: #ff6600;
-  border-radius: 3em;
-  padding: 0.3em 1.2em;
-  border: none;
+#image {
+  width: auto;
+  color: var(--primaryfont);
 }
 
 .userpostSubmitBtn {
