@@ -115,4 +115,9 @@ button:hover {
   button {
     font-size: 4vw;
   }
+
+  input#description {
+    margin: 0;
+    width: 95%;
+  }
 }
