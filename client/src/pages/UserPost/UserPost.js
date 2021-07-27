@@ -24,6 +24,34 @@ const UserPost = (props) => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state);
 
+  const [loading, setLoading] = useState(false);
+  // const [image, setImage] = useState("");
+
+  const uploadImage = async (e) => {
+    const files = e.target.files;
+    const data = new FormData();
+    data.append("file", files[0]);
+    data.append("upload_preset", "crapimages");
+    setLoading(true);
+
+    const res = await fetch(
+      "https://api.cloudinary.com/v1_1/ddzl1a7xk/image/upload",
+      {
+        method: "POST",
+        body: data,
+      }
+    );
+
+    const file = await res.json();
+    console.log(file);
+
+    setFormState({
+      ...formState,
+      image: file.secure_url,
+    });
+    setLoading(false);
+  };
+
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     const location =
@@ -204,7 +232,7 @@ const UserPost = (props) => {
             <section className="saleBox">
               <label htmlFor="startDate">Start Date:</label>
               <DatetimePicker
-              className="dateButton"
+                className="dateButton"
                 disableClock={true}
                 disableCalendar={true}
                 name="startDate"
@@ -213,7 +241,7 @@ const UserPost = (props) => {
               />
               <label htmlFor="endDate">End Date:</label>
               <DatetimePicker
-              className="dateButton"
+                className="dateButton"
                 disableClock={true}
                 disableCalendar={true}
                 name="endDate"
@@ -238,48 +266,33 @@ const UserPost = (props) => {
                 onChange={handleChange}
               />
               <label htmlFor="image">Image:</label>
-              <input 
-                placeholder="image"
+              <input
+                type="file"
+                name="file"
+                placeholder="Upload an Image"
                 accept=".png, .jpg, .jpeg"
-                alt={formState.description}
-                name="image"
+                alt={formState.image}
                 id="image"
-                onChange={handleChange}
+                onChange={uploadImage}
               />
-              <div className="imageWidget">
-                <button
-                  id="upload_widget"
-                  htmlFor="post-image"
-                  name="post-image"
-                >
-                  Upload Picture
-                </button>
 
-                <script
-                  src="https://upload-widget.cloudinary.com/global/all.js"
-                  type="text/javascript"
-                ></script>
+              {loading ? (
+                <h3>Loading...</h3>
+              ) : (
+                <img
+                  src={formState.image}
+                  alt=""
+                  style={{ maxWidth: "300px", maxHeight: "300px" }}
+                />
+              )}
 
-                <script type="text/javascript">
-                  var myWidget = cloudinary.createUploadWidget({"{"}
-                  cloudName: 'my_cloud_name', uploadPreset: 'my_preset'{"}"},
-                  (error, result) =&gt; {"{"}
-                  if (!error &amp;&amp; result &amp;&amp; result.event ===
-                  "success") {"{"}
-                  console.log('Done! Here is the image info: ', result.info);
-                  {"}"}
-                  {"}"})
-                  document.getElementById("upload_widget").addEventListener("click",
-                  function(){"{"}
-                  myWidget.open();
-                  {"}"}, false);
-                </script>
-              </div>
             </section>
           </div>
         </div>
         <div className="submit">
-          <button className="userpostSubmitBtn" type="submit">Submit</button>
+          <button className="userpostSubmitBtn" type="submit">
+            Submit
+          </button>
         </div>
       </form>
     </div>
