@@ -37,7 +37,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1000px) {
    .saleItemBox {
     display: flex;
     flex-direction: column;
@@ -59,10 +59,10 @@
     margin: 0 0 10px 0;
    }
    img {
-    width: 95%;
-    object-fit: contain;
-    justify-content: center;
-    align-items: center;
-    justify-items: center;
+     width: 95%;
+        object-fit: contain;
+        justify-content: center;
+        align-items: center;
+        justify-items: center;
    }
   }
