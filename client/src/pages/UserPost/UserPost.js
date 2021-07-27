@@ -4,7 +4,7 @@ import Auth from "../../utils/auth";
 import { ADD_SALE } from "../../utils/mutations";
 import DatetimePicker from "react-datetime-picker";
 import { useHistory } from "react-router";
-import { HIDE_DATE_WARNING, SHOW_DATE_WARNING } from "../../utils/actions";
+import { HIDE_DATE_WARNING, SHOW_DATE_WARNING, ADD_SALE_ITEM } from "../../utils/actions";
 import { useDispatch, useSelector } from "react-redux";
 import "./UserPost.css";
 
@@ -80,6 +80,18 @@ const UserPost = (props) => {
     dispatch({
       type: HIDE_DATE_WARNING,
     });
+    dispatch({
+      type: ADD_SALE_ITEM,
+      sale:{
+        _id: 234234,
+      location: location,
+      startTime: formState.startTime,
+      endTime: formState.endTime,
+      startDate: formState.startDate,
+      endDate: formState.endDate,
+      description: formState.description,
+      image: formState.image}
+    })
     history.push("/");
   };
 
