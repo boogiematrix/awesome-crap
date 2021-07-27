@@ -24,6 +24,7 @@
     "concurrently": "^5.1.0"
   },
   "dependencies": {
+    "cloudinary": "^1.26.2",
     "moment": "^2.29.1",
     "react-datetime-picker": "^3.3.0"
   }
