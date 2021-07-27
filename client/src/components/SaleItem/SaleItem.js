@@ -1,21 +1,18 @@
-import React, {useEffect, useState} from 'react'
-import { useMutation, useQuery } from '@apollo/client';
+import React, { useEffect } from 'react'
+import { useMutation} from '@apollo/client';
 import Auth  from '../../utils/auth'
 import { TOGGLE_INTERESTED_IN } from '../../utils/actions';
-import { GET_ME } from '../../utils/queries';
 import { SAVE_SALE, UNSAVE_SALE } from '../../utils/mutations';
 import { useDispatch, useSelector } from 'react-redux';
 import "./SaleItem.css";
 
 
 const SaleItem = (props) => {
-let userData = {}
 
   const dispatch = useDispatch();
   const state = useSelector((state) => state)
-  const [saveSale, { error }] = useMutation(SAVE_SALE)
+  const [saveSale] = useMutation(SAVE_SALE)
   const [unsaveSale] = useMutation(UNSAVE_SALE)
-  const { loading, data } = useQuery(GET_ME)
   
   const {
     _id,
@@ -24,18 +21,37 @@ let userData = {}
     endDate,
     description,
     image,
-    mySavedSales
+    //mySavedSales,
+    pathname
   } = props
 
   const { savedSales } = state;
+  const savedSalesIds = savedSales.map(({_id}) => _id)
+  const sale = {
+    _id: _id,
+    location: location,
+    startDate: startDate,
+    endDate: endDate,
+    description: description,
+    image: image
+  }
   
-  let isInterested = savedSales.includes(_id) || mySavedSales.includes(_id)
-
+  //let initialInterest = !mySavedSales.includes(_id)
+  let isInterested = savedSalesIds.includes(_id)
+  // useEffect(() => {
+    
+  //   dispatch({
+  //     type: TOGGLE_INTERESTED_IN,
+  //     isInterested: initialInterest,
+  //     sale: sale
+  //   })
+  // }, [])
+  
   const imInterested = async () => {
     dispatch({
       type: TOGGLE_INTERESTED_IN,
       isInterested: isInterested,
-      saleID: _id
+      sale: sale
     })
     if (isInterested) {
       await unsaveSale({
@@ -70,7 +86,7 @@ let userData = {}
         <p>{endDate}</p>
         <p>{description}</p>
         
-          {Auth.loggedIn() ? (isInterested ? (<button className="saleItemBtn" onClick={imInterested}>I'm Aware of This Crap</button>)
+          {Auth.loggedIn() && pathname === '/' ? (isInterested ? (<button className="saleItemBtn" onClick={imInterested}>I'm Aware of This Crap</button>)
             : <button className="saleItemBtn" onClick={imInterested}>I Want This Crap!</button>
           ) : (<p></p>)}
       </div>

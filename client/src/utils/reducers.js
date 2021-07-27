@@ -28,9 +28,9 @@ export const reducer = createReducer(initialState, (builder) => {
         .addCase(TOGGLE_INTERESTED_IN, (state, action) => {
             console.log(action)
             if (action.isInterested) {
-                state.savedSales = state.savedSales.filter((id) => id !== action.saleID)
+                state.savedSales = state.savedSales.filter(({_id}) => _id !== action.sale._id)
             } else {
-                state.savedSales.push(action.saleID)
+                state.savedSales.push(action.sale)
             }
         })
 })
