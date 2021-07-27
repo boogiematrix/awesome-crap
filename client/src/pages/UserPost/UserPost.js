@@ -69,26 +69,23 @@ const UserPost = (props) => {
     const { data } = await addSale({
       variables: {
         location: location,
-        startTime: formState.startTime,
-        endTime: formState.endTime,
         startDate: formState.startDate,
         endDate: formState.endDate,
         description: formState.description,
         image: formState.image,
       },
     });
+    console.log(data)
     dispatch({
       type: HIDE_DATE_WARNING,
     });
     dispatch({
       type: ADD_SALE_ITEM,
       sale:{
-        _id: 234234,
+        _id: data.addSale._id,
       location: location,
-      startTime: formState.startTime,
-      endTime: formState.endTime,
-      startDate: formState.startDate,
-      endDate: formState.endDate,
+      startDate: formState.startDate.getTime(),
+      endDate: formState.endDate.getTime(),
       description: formState.description,
       image: formState.image}
     })
