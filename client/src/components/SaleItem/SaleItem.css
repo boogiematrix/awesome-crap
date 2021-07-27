@@ -45,7 +45,24 @@
     align-content: center;
     align-items: center;
     padding: 0;
-    /* margin: 5px; */
     width: 60%;
+   }
+   #saleItem {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+   }
+   .saleItemBtn {
+    font-size: 1rem;
+    margin: 0 0 10px 0;
+   }
+   img {
+    width: 95%;
+    object-fit: contain;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
    }
   }

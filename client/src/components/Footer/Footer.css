@@ -15,3 +15,9 @@ footer p {
     font-size: 1.5rem;
     font-weight: bolder;
 }
+
+@media only screen and (max-width: 1200px) {
+  footer p {
+    font-size: 1rem;
+  }
+}

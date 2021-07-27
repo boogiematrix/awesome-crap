@@ -78,7 +78,7 @@ const SaleItem = (props) => {
         ) : (
           <p></p>
         )}
-
+<br />
         {Auth.loggedIn() ? (
           isInterested ? (
             <button className="saleItemBtn" onClick={imInterested}>
