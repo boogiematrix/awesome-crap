@@ -27,7 +27,7 @@ const SaleItem = (props) => {
     endDate,
     description,
     image,
-
+    unformattedAddress
   } = props
 
   const { savedSales } = state;
@@ -79,8 +79,9 @@ const SaleItem = (props) => {
 
   
   const generatemap = (data) =>{
-    
+    console.log(`data ${JSON.stringify(data)}`)
     const geoData = { lat: data.results[0].geometry.location.lat, lng: data.results[0].geometry.location.lng };
+    console.log(`geoData ${JSON.stringify(geoData)}`)
     const MyMapComponent = compose(
       withProps({
         googleMapURL:
@@ -92,23 +93,19 @@ const SaleItem = (props) => {
       withScriptjs,
       withGoogleMap
       )((props) => (
-        <GoogleMap defaultZoom={8} defaultCenter={{ geoData }}>
+        <GoogleMap defaultZoom={8} defaultCenter={ geoData }>
       {props.isMarkerShown && (
-        <Marker position={{ geoData }} />
+        <Marker position={ geoData } />
         )}
     </GoogleMap>
     ));
-    ReactDOM.render(<MyMapComponent isMarkerShown />, document.getElementById("map"));
+    ReactDOM.render(<MyMapComponent isMarkerShown />, document.getElementById(_id));
   }
   
-  const fetchCoordinates = (location) => {
+  const fetchCoordinates = () => {
 
-    var qAddress = location.address
-    var qCity = location.city
-    var qState = location.state
-    var qZIP = location.zip
 
-    var geoSearch = "https://maps.googleapis.com/maps/api/geocode/json?address=" + qAddress + ",+" + qCity + ",+" + qState + ",+" + qZIP + "&key=AIzaSyA0E2xlF5DnuUkpFRByU1eb_e-AbdZGjjM";
+    var geoSearch = "https://maps.googleapis.com/maps/api/geocode/json?address=" + unformattedAddress + "&key=AIzaSyA0E2xlF5DnuUkpFRByU1eb_e-AbdZGjjM";
 
     fetch(geoSearch)
         .then((response) => {
@@ -123,9 +120,10 @@ const SaleItem = (props) => {
   return (
     <section className="saleItem">
       <div className="saleItemBox">
+        <div>
+
         <h3>Where</h3>
         <p>{location}</p>
-        <div id="map"></div>
         <h3>Starts</h3>
         <p>{startDate}</p>
         <h3>Ends</h3>
@@ -135,13 +133,16 @@ const SaleItem = (props) => {
 
         {image ? (
           <img
-            src={image}
-            alt={description}
-            style={{ maxWidth: "300px", maxHeight: "300px" }}
+          src={image}
+          alt={description}
+          style={{ maxWidth: "300px", maxHeight: "300px" }}
           />
-        ) : (
-          <p></p>
-        )}
+          ) : (
+            <p></p>
+            )}
+        </div>
+        <div id={_id}>{fetchCoordinates()}</div>
+
 <br />
         {Auth.loggedIn() ? (
           isInterested ? (
