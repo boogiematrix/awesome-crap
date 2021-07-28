@@ -27,7 +27,8 @@ const SaleItem = (props) => {
     endDate,
     description,
     image,
-    unformattedAddress
+    unformattedAddress,
+    isOriginalSale
   } = props
 
   const { savedSales } = state;
@@ -87,8 +88,8 @@ const SaleItem = (props) => {
         googleMapURL:
         "https://maps.googleapis.com/maps/api/js?key=AIzaSyA0E2xlF5DnuUkpFRByU1eb_e-AbdZGjjM&libraries=geometry,drawing,places",
         loadingElement: <div style={{ height: `50%` }} />,
-        containerElement: <div style={{ height: `300px`, width: `300px` }} />,
-        mapElement: <div style={{ height: `50%` }} />
+        containerElement: <div style={{ height: `300px`, width: `auto` }} />,
+        mapElement: <div style={{ height: `100%` }} />
       }),
       withScriptjs,
       withGoogleMap
@@ -120,7 +121,6 @@ const SaleItem = (props) => {
   return (
     <section className="saleItem">
       <div className="saleItemBox">
-        <div>
 
         <h3>Where</h3>
         <p>{location}</p>
@@ -131,17 +131,20 @@ const SaleItem = (props) => {
         <h3>Description</h3>
         <p>{description}</p>
 
-        {image ? (
-          <img
-          src={image}
-          alt={description}
-          style={{ maxWidth: "300px", maxHeight: "300px" }}
-          />
-          ) : (
-            <p></p>
-            )}
+          {!isOriginalSale ?( 
+        <div>
+          {image ? (
+            <img
+            src={image}
+            alt={description}
+                style={{ maxWidth: "80%", maxHeight: "80%", borderRadius: "20px", border: "5px solid gray" }}
+            />
+            ) : (
+              <p></p>
+              )}
+              <div id={_id} className="map">{fetchCoordinates()}</div>
         </div>
-        <div id={_id}>{fetchCoordinates()}</div>
+          ): (<p></p>)}
 
 <br />
         {Auth.loggedIn() ? (
