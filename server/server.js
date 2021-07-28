@@ -5,6 +5,7 @@ const path = require('path');
 const { typeDefs, resolvers } = require('./schemas');
 const { authMiddleware } = require('./utils/auth');
 const db = require('./config/connection');
+// const cloudinary = require('cloudinary');
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -13,6 +14,12 @@ const server = new ApolloServer({
     resolvers,
     context: authMiddleware
 });
+
+// cloudinary.config({
+    // cloud_name: 'dustingottlieb',
+    // api_key: '384262337385414',
+    // api_secret: 'I892sxli4ZxOTCvgQPdGIN_hZ9k'
+// }); 
 
 server.applyMiddleware({ app });
 

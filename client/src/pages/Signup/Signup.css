@@ -68,7 +68,7 @@
   border-radius: 10px;
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1000px) {
   .login, .signupHeader {
      font-size: 4vw;
      display: flex;

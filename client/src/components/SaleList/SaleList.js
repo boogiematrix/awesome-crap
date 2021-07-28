@@ -1,31 +1,73 @@
 import './SaleList.css';
-import React from 'react';
 import Auth from '../../utils/auth'
+
+import React, {useEffect} from 'react'
 import { useQuery } from '@apollo/client';
 import { GET_ALL_SALES, GET_ME } from '../../utils/queries';
+import { ADD_SALE_ITEM, REMOVE_SALE_ITEM, TOGGLE_INTERESTED_IN } from '../../utils/actions';
 import { format_date } from '../../utils/helpers';
 import { format_address } from '../../utils/helpers';
+import { useSelector, useDispatch } from 'react-redux';
 
 import SaleItem from "../SaleItem/SaleItem";
 
 const SaleList = (props) => {
-
+    const dispatch = useDispatch();
+    const state = useSelector((state) => state)
     const { location } = props;
     const { loading: loadingMe, data: dataMe } = useQuery(GET_ME);
-    const { loading, data } = useQuery(GET_ALL_SALES)
+
+    const { loading, data } = useQuery(GET_ALL_SALES);
+    const { savedSales, sales } = state;
+
+    useEffect(() => {
+        if (dataMe) {
+            dataMe.me.savedSales.forEach((sale) => {
+                dispatch({
+                    type: TOGGLE_INTERESTED_IN,
+                    isInterested: false,
+                    sale: sale
+                })
+            })
+            return function () {
+                dataMe.me.savedSales.forEach((sale) => {
+                    dispatch({
+                        type: TOGGLE_INTERESTED_IN,
+                        isInterested: true,
+                        sale: sale
+                    })
+                })
+            }
+        };
+    }, [dataMe, dispatch])
+
+    useEffect(() => {
+        if (data) {
+            data.sales.forEach((sale) => {
+                dispatch({
+                    type: ADD_SALE_ITEM,
+                    sale: sale
+                })
+            })
+            return function () {
+                data.sales.forEach((sale) => {
+                    dispatch({
+                        type: REMOVE_SALE_ITEM,
+                        _id: sale._id,
+                    })
+                })
+            }
+        };
+    }, [data, dispatch])
 
     if (loading || loadingMe) {
         return (<h3>Loading...</h3>)
     } else {
-        let renderedSales = data.sales
-        let mySavedSales = [];
-        console.log(renderedSales)
-        if (Auth.loggedIn()) {
-            dataMe?.me.savedSales.map(({_id}) =>  mySavedSales.push(_id))
-        }
+        let renderedSales = sales
+
         if (location.pathname === '/usercrap') {
-            renderedSales = dataMe?.me.savedSales
-            console.log(`savedsales ${renderedSales}`)
+            renderedSales = savedSales;
+            console.log(`savedsales ${JSON.stringify(savedSales) }`)
         }
         return (
             <div className="saleList">
@@ -39,7 +81,7 @@ const SaleList = (props) => {
                     startDate={format_date(sale.startDate)}
                     endDate={format_date(sale.endDate)}
                     description={sale.description}
-                    mySavedSales={mySavedSales}
+                    pathname={location.pathname}
                     />
 
                 })}
