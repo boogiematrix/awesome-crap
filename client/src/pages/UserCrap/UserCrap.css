@@ -1,13 +1,17 @@
 .usercrap {
     display: flex;
-    flex-flow: row wrap;
-}
-
-.usercrap .saleItem {
+    flex-direction: row;
     width: 100%;
+    display: flex;
 }
 
-.usercrap .saleList {
+.saleItem {
+    width: 100%;
+    display: flex;
+}
+
+
+.saleList {
     display: flex;
     flex-flow: column wrap;
     align-content: flex-start;
@@ -21,12 +25,16 @@
     width: 25%;
 }
 
-.usercrap .saleList .saleItemBox {
-width: 80%;
-font-size: 24px;
+.saleList {
+    width: 75%;
 }
 
-.usercrap .userSale .saleItemBox {
+.saleItemBox {
+width: 80%;
+font-size: 24px;
+margin: 20px;
+}
+ .userSale {
     width: auto;
     font-size: 12px;
 }
@@ -36,4 +44,24 @@ font-size: 24px;
     padding-top: 20px;
     text-shadow: 5px 5px 5px gray;
     font-size: 2rem;
+}
+
+@media only screen and (max-width: 1900px) {
+    .usercrap {
+        flex: wrap;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        align-items: center; 
+    }
+.saleList {
+        width: 100%;
+        padding: 0;
+    }
+    .saleItemBox {
+        width: 90%;
+    }
+    .userSale {
+        width: 100%;
+    }
 }
