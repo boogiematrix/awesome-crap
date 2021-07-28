@@ -16,13 +16,15 @@ We worked both individually and as a group. Individually, people worked on certa
 
 ## User Story
 
-AS A person that is interested in yard/garage sales
-I WANT TO use an app that allows me to search yard sales in specific areas, save yard sales I am interested in, and post information about my own yard sales
+AS A person that is interested in yard/garage sales  
+
+I WANT TO use an app that allows me to search yard sales in specific areas, save yard sales I am interested in, and post information about my own yard sales  
+
 SO THAT I can be better organized when visiting yard sales, as well as reach more people when having my own yard sale
 
 ## Usage
 
-Here is a link to the [Awesome Crap Application]() , which is deployed through Heroku.
+Here is a link to the [Awesome Crap Application](https://secret-savannah-75724.herokuapp.com/), which is deployed through Heroku.
 
 ## Technologies Used
 
