@@ -23,6 +23,11 @@
   width: 25%;
 }
 
+.saleItemBox h3 {
+  color: var(--primaryColor);
+  margin: 10px
+}
+
 .saleItemBtn {
   font-weight: bold;
   font-size: 1.1rem;
