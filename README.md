@@ -1,6 +1,7 @@
 # AWESOME CRAP
 
 ## Goal
+
 The goal of this group project was to showcase skills we have learned throughout the course in a collaborative setting, by building a MERN stack application that solves a real-world need, focusing on data and user demand.
 
 ## Process
@@ -39,7 +40,8 @@ Here is a link to the [Awesome Crap Application]() , which is deployed through H
 - Redux
 - React Datetime Picker
 - Moment JS
-  
+- react-google-maps
+
 ## Future Improvements
 
 As with any app, there is always room for improvements and additions. Given more time, these are just some of the things that could be improved upon or added to our app.  
@@ -49,3 +51,4 @@ As more and more yard sales get posted in the Awesome Crap app, it would be usef
 As the site grows, it could potentially provide a way in which the seller could post a list of specific items they have to offer, making it possible for potential buyers to search for a yard sale based on types of items.  
 
 It could also be useful to incorporate an alert system, so that users get an alert on their devices of upcoming yard/garage sales they have previously saved.  
+

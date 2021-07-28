@@ -16,7 +16,7 @@ export const OriginalSales = () => {
             console.log(data)
             return (
                 <div className="userSale">
-
+                    <h2>Your Crap</h2>
                     {data.me.sales.map((sale) => {
                         return <SaleItem
                             key={sale._id}

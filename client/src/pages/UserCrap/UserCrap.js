@@ -7,7 +7,7 @@ const userCrap = (props) => {
     return (
         <div className='usercrap'>
             <OriginalSales />
-            <SaleList location={props.location}/>
+            <SaleList location={props.location}/> 
         </div>
     )
 }
