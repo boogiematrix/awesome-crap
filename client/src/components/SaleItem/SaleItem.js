@@ -106,7 +106,7 @@ const SaleItem = (props) => {
   const fetchCoordinates = () => {
 
 
-    var geoSearch = "https://maps.googleapis.com/maps/api/geocode/json?address=" + unformattedAddress + "&key=AIzaSyA0E2xlF5DnuUkpFRByU1eb_e-AbdZGjjM";
+    var geoSearch = "https://maps.googleapis.com/maps/api/geocode/json?address=" + unformattedAddress + "&key=" + process.env.REACT_APP_GOOGLE_API;
 
     fetch(geoSearch)
         .then((response) => {
