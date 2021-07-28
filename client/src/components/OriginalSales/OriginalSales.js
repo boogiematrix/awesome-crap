@@ -15,7 +15,7 @@ export const OriginalSales = () => {
         } else {
             console.log(data)
             return (
-                <div className="saleList">
+                <div className="userSale">
 
                     {data.me.sales.map((sale) => {
                         return <SaleItem

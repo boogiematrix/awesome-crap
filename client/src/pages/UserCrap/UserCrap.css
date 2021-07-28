@@ -1,0 +1,33 @@
+.usercrap {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.usercrap .saleItem {
+    width: 100%;
+}
+
+.userSale {
+    display: flex;
+    flex-flow: column wrap;
+    align-content: flex-start;
+    width: 75%;
+} 
+
+.usercrap .saleList {
+    display: flex;
+    flex-flow: column wrap;
+    align-content: flex-start;
+    width: 25%;
+}
+
+.usercrap .userSale .saleItemBox {
+    width: 80%;
+    font-size: 24px;
+}
+
+.usercrap .saleList .saleItemBox {
+    width: auto;
+    font-size: 12px;
+}
+
