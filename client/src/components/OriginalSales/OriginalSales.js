@@ -10,6 +10,7 @@ import SaleItem from '../SaleItem/SaleItem';
 export const OriginalSales = () => {
     const { loading, data } = useQuery(GET_ME);
 
+    const isOriginalSale = true;
         if (loading) {
             return (<h2>Loading...</h2>)
         } else {
@@ -26,6 +27,7 @@ export const OriginalSales = () => {
                             startDate={format_date(sale.startDate)}
                             endDate={format_date(sale.endDate)}
                             description={sale.description}
+                            isOriginalSale={isOriginalSale}
                         />
 
                     })}

@@ -6,8 +6,8 @@ import "./UserCrap.css";
 const userCrap = (props) => {
     return (
         <div className='usercrap'>
-            <OriginalSales />
             <SaleList location={props.location}/> 
+            <OriginalSales />
         </div>
     )
 }

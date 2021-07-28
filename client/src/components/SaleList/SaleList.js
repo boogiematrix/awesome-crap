@@ -82,6 +82,7 @@ const SaleList = (props) => {
                     endDate={format_date(sale.endDate)}
                     description={sale.description}
                     pathname={location.pathname}
+                    unformattedAddress={sale.location}
                     />
 
                 })}

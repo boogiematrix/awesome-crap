@@ -27,7 +27,8 @@ const SaleItem = (props) => {
     endDate,
     description,
     image,
-
+    unformattedAddress,
+    isOriginalSale
   } = props
 
   const { savedSales } = state;
@@ -79,36 +80,33 @@ const SaleItem = (props) => {
 
   
   const generatemap = (data) =>{
-    
+    console.log(`data ${JSON.stringify(data)}`)
     const geoData = { lat: data.results[0].geometry.location.lat, lng: data.results[0].geometry.location.lng };
+    console.log(`geoData ${JSON.stringify(geoData)}`)
     const MyMapComponent = compose(
       withProps({
         googleMapURL:
         "https://maps.googleapis.com/maps/api/js?key=AIzaSyA0E2xlF5DnuUkpFRByU1eb_e-AbdZGjjM&libraries=geometry,drawing,places",
         loadingElement: <div style={{ height: `50%` }} />,
-        containerElement: <div style={{ height: `300px`, width: `300px` }} />,
-        mapElement: <div style={{ height: `50%` }} />
+        containerElement: <div style={{ height: `300px`, width: `auto` }} />,
+        mapElement: <div style={{ height: `100%` }} />
       }),
       withScriptjs,
       withGoogleMap
       )((props) => (
-        <GoogleMap defaultZoom={8} defaultCenter={{ geoData }}>
+        <GoogleMap defaultZoom={8} defaultCenter={ geoData }>
       {props.isMarkerShown && (
-        <Marker position={{ geoData }} />
+        <Marker position={ geoData } />
         )}
     </GoogleMap>
     ));
-    ReactDOM.render(<MyMapComponent isMarkerShown />, document.getElementById("map"));
+    ReactDOM.render(<MyMapComponent isMarkerShown />, document.getElementById(_id));
   }
   
-  const fetchCoordinates = (location) => {
+  const fetchCoordinates = () => {
 
-    var qAddress = location.address
-    var qCity = location.city
-    var qState = location.state
-    var qZIP = location.zip
 
-    var geoSearch = "https://maps.googleapis.com/maps/api/geocode/json?address=" + qAddress + ",+" + qCity + ",+" + qState + ",+" + qZIP + "&key=AIzaSyA0E2xlF5DnuUkpFRByU1eb_e-AbdZGjjM";
+    var geoSearch = "https://maps.googleapis.com/maps/api/geocode/json?address=" + unformattedAddress + "&key=AIzaSyA0E2xlF5DnuUkpFRByU1eb_e-AbdZGjjM";
 
     fetch(geoSearch)
         .then((response) => {
@@ -123,9 +121,9 @@ const SaleItem = (props) => {
   return (
     <section className="saleItem">
       <div className="saleItemBox">
+
         <h3>Where</h3>
         <p>{location}</p>
-        <div id="map"></div>
         <h3>Starts</h3>
         <p>{startDate}</p>
         <h3>Ends</h3>
@@ -133,15 +131,21 @@ const SaleItem = (props) => {
         <h3>Description</h3>
         <p>{description}</p>
 
-        {image ? (
-          <img
+          {!isOriginalSale ?( 
+        <div>
+          {image ? (
+            <img
             src={image}
             alt={description}
-            style={{ maxWidth: "300px", maxHeight: "300px" }}
-          />
-        ) : (
-          <p></p>
-        )}
+                style={{ maxWidth: "80%", maxHeight: "80%", borderRadius: "20px", border: "5px solid gray" }}
+            />
+            ) : (
+              <p></p>
+              )}
+              <div id={_id} className="map">{fetchCoordinates()}</div>
+        </div>
+          ): (<p></p>)}
+
 <br />
         {Auth.loggedIn() ? (
           isInterested ? (
