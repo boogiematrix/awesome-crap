@@ -1,5 +1,5 @@
 import './SaleList.css';
-import React from 'react'
+import React from 'react';
 import Auth from '../../utils/auth'
 import { useQuery } from '@apollo/client';
 import { GET_ALL_SALES, GET_ME } from '../../utils/queries';
@@ -13,7 +13,7 @@ const SaleList = (props) => {
     const { location } = props;
     const { loading: loadingMe, data: dataMe } = useQuery(GET_ME);
     const { loading, data } = useQuery(GET_ALL_SALES)
-    
+
     if (loading || loadingMe) {
         return (<h3>Loading...</h3>)
     } else {
@@ -29,7 +29,7 @@ const SaleList = (props) => {
         }
         return (
             <div className="saleList">
-                
+
                 {renderedSales.map((sale) => {
                     return <SaleItem
                     key={sale._id}
@@ -41,11 +41,11 @@ const SaleList = (props) => {
                     description={sale.description}
                     mySavedSales={mySavedSales}
                     />
-                    
+
                 })}
             </div>
             )
         }
     }
-        
+
         export default SaleList
