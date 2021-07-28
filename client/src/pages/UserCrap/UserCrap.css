@@ -15,18 +15,14 @@
     display: flex;
     flex-flow: column wrap;
     align-content: flex-start;
-    width: 75%;
+    width: 100%;
 } 
 
 .userSale {
     display: flex;
     flex-flow: column wrap;
     align-content: flex-start;
-    width: 25%;
-}
-
-.saleList {
-    width: 75%;
+    width: 25%
 }
 
 .saleItemBox {

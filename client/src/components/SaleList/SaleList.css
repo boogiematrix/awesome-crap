@@ -7,6 +7,13 @@
   --accentColor: #e5a77d;
 }
 
+.saleItem {
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
 @media only screen and (max-width: 1000px) {
   .saleList {
      font-size: 4vw;
