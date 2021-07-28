@@ -3,7 +3,8 @@ import ReactDOM from "react-dom";
 import { useMutation, useQuery } from '@apollo/client';
 import { compose, withProps } from "recompose";
 import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-maps";
-import Auth  from '../../utils/auth'
+import Auth from '../../utils/auth'
+import { GET_ME } from '../../utils/queries';
 import { TOGGLE_INTERESTED_IN } from '../../utils/actions';
 import { SAVE_SALE, UNSAVE_SALE } from '../../utils/mutations';
 import { useDispatch, useSelector } from 'react-redux';
@@ -76,6 +77,30 @@ const SaleItem = (props) => {
     }
   }
 
+  
+  const generatemap = (data) =>{
+    
+    const geoData = { lat: data.results[0].geometry.location.lat, lng: data.results[0].geometry.location.lng };
+    const MyMapComponent = compose(
+      withProps({
+        googleMapURL:
+        "https://maps.googleapis.com/maps/api/js?key=AIzaSyA0E2xlF5DnuUkpFRByU1eb_e-AbdZGjjM&libraries=geometry,drawing,places",
+        loadingElement: <div style={{ height: `50%` }} />,
+        containerElement: <div style={{ height: `300px`, width: `300px` }} />,
+        mapElement: <div style={{ height: `50%` }} />
+      }),
+      withScriptjs,
+      withGoogleMap
+      )((props) => (
+        <GoogleMap defaultZoom={8} defaultCenter={{ geoData }}>
+      {props.isMarkerShown && (
+        <Marker position={{ geoData }} />
+        )}
+    </GoogleMap>
+    ));
+    ReactDOM.render(<MyMapComponent isMarkerShown />, document.getElementById("map"));
+  }
+  
   const fetchCoordinates = (location) => {
 
     var qAddress = location.address
@@ -90,47 +115,28 @@ const SaleItem = (props) => {
             return response.json();
         })
         .then((data) => {
-            generateMap(data);
+            generatemap(data);
         })
   };
-
-  const generatemap = (data) =>{
-
-    const geoData = { lat: data.results[0].geometry.location.lat, lng: data.results[0].geometry.location.lng };
-    const MyMapComponent = compose(
-    withProps({
-      googleMapURL:
-        "https://maps.googleapis.com/maps/api/js?key=AIzaSyA0E2xlF5DnuUkpFRByU1eb_e-AbdZGjjM&libraries=geometry,drawing,places",
-      loadingElement: <div style={{ height: `50%` }} />,
-      containerElement: <div style={{ height: `300px`, width: `300px` }} />,
-      mapElement: <div style={{ height: `50%` }} />
-    }),
-    withScriptjs,
-    withGoogleMap
-  )((props) => (
-    <GoogleMap defaultZoom={8} defaultCenter={{ geoData }}>
-      {props.isMarkerShown && (
-        <Marker position={{ geoData }} />
-      )}
-    </GoogleMap>
-    ));
-    ReactDOM.render(<MyMapComponent isMarkerShown />, document.getElementById("map"));
-  }
-
+  
 
   return (
     <section className="saleItem">
       <div className="saleItemBox">
+        <h3>Where</h3>
         <p>{location}</p>
         <div id="map"></div>
+        <h3>Starts</h3>
         <p>{startDate}</p>
+        <h3>Ends</h3>
         <p>{endDate}</p>
+        <h3>Description</h3>
         <p>{description}</p>
 
         {image ? (
           <img
             src={image}
-            alt=""
+            alt={description}
             style={{ maxWidth: "300px", maxHeight: "300px" }}
           />
         ) : (

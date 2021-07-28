@@ -20,13 +20,17 @@
 }
 
 .link {
-    color: var(--primaryColor);
-    text-decoration: none;
-    font-size: 1.5rem;
+  color: var(--primaryColor);
+  text-decoration: none;
+  font-size: 1.5rem;
+  transition-property: text-shadow;
+  transition-duration: 1s;
+  transition-delay: 0;
 }
 
 .link:hover {
-    color: var(--accentColor);
+  color: var(--accentColor);
+  text-shadow: 5px 10px 2px rgb(228, 130, 117);
 }
 
 @media only screen and (max-width: 1000px) {

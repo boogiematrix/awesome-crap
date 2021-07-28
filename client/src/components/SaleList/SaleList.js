@@ -71,7 +71,7 @@ const SaleList = (props) => {
         }
         return (
             <div className="saleList">
-
+                {location.pathname === '/usercrap' ? (<h2>Upcoming Saved Crap</h2>) : (<p></p>)}
                 {renderedSales.map((sale) => {
                     return <SaleItem
                     key={sale._id}
