@@ -137,7 +137,7 @@ const SaleItem = (props) => {
             <img
             src={image}
             alt={description}
-                style={{ maxWidth: "80%", maxHeight: "80%", borderRadius: "20px", border: "5px solid gray" }}
+                style={{ width: "70%", height: "70%", borderRadius: "20px", border: "5px solid gray" }}
             />
             ) : (
               <p></p>
