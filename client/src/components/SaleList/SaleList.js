@@ -1,4 +1,6 @@
 import './SaleList.css';
+import Auth from '../../utils/auth'
+
 import React, {useEffect} from 'react'
 import { useQuery } from '@apollo/client';
 import { GET_ALL_SALES, GET_ME } from '../../utils/queries';
@@ -14,6 +16,7 @@ const SaleList = (props) => {
     const state = useSelector((state) => state)
     const { location } = props;
     const { loading: loadingMe, data: dataMe } = useQuery(GET_ME);
+
     const { loading, data } = useQuery(GET_ALL_SALES);
     const { savedSales, sales } = state;
 
@@ -57,7 +60,6 @@ const SaleList = (props) => {
         };
     }, [data, dispatch])
 
-    
     if (loading || loadingMe) {
         return (<h3>Loading...</h3>)
     } else {
@@ -69,7 +71,7 @@ const SaleList = (props) => {
         }
         return (
             <div className="saleList">
-                
+
                 {renderedSales.map((sale) => {
                     return <SaleItem
                     key={sale._id}
@@ -81,11 +83,11 @@ const SaleList = (props) => {
                     description={sale.description}
                     pathname={location.pathname}
                     />
-                    
+
                 })}
             </div>
             )
         }
     }
-        
+
         export default SaleList
