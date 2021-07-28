@@ -6,3 +6,38 @@
   --secondaryColor: #a07959;
   --accentColor: #e5a77d;
 }
+
+.home .saleItemBox {
+  width: 80%;
+  font-size: 2.5rem;
+}
+
+@media only screen and (max-width: 1000px) {
+   .home .saleItemBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    padding: 0;
+    width: 60%;
+   }
+   #saleItem {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+   }
+   .saleItemBtn {
+    font-size: 1rem;
+    margin: 0 0 10px 0;
+   }
+   img {
+     width: 95%;
+        object-fit: contain;
+        justify-content: center;
+        align-items: center;
+        justify-items: center;
+   }
+  }
