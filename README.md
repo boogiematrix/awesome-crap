@@ -12,7 +12,7 @@ We then created the intial file structure for a MERN application, adjusting it a
 
 We worked both individually and as a group. Individually, people worked on certain specific elements of the code and, when together, we could collaborate on how to finish up certain sections we had been working on individually as well. The collaboration was especially important when fixing bugs. Overall, it was a successful group experience, and gave us an idea of what working as a team would be like in a professional environment.  
 
-Here is a [Walkthrough Video of the Awesome Crap App](https://drive.google.com/file/d/10gs0KqOS6eU5G_UDlrRQCTEV3OTZrTnE/view)
+Here is a [Walkthrough Video of the Awesome Crap App](https://drive.google.com/file/d/1abKjXkNwGF1G5zOXS042wCqENtSVd98l/view)
 
 ## User Story
 
